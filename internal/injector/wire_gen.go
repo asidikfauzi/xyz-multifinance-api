@@ -9,6 +9,8 @@ package injector
 import (
 	"asidikfauzi/xyz-multifinance-api/internal/database"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/auth"
+	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer"
+	consumer2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/consumer"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/role"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/user"
 )
@@ -22,4 +24,14 @@ func InitializedAuthModule() *auth.AuthsController {
 	authsService := auth.NewAuthService(usersMySQL, rolesMySQL)
 	authsController := auth.NewAuthController(authsService)
 	return authsController
+}
+
+// Injectors from consumer_wire.go:
+
+func InitializedConsumerModule() *consumer.ConsumersController {
+	db := database.InitDatabase()
+	consumersMySQL := consumer2.NewConsumersMySQL(db)
+	consumersService := consumer.NewConsumersService(consumersMySQL)
+	consumersController := consumer.NewConsumersController(consumersService)
+	return consumersController
 }

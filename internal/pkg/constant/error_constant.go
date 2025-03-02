@@ -5,6 +5,8 @@ import "errors"
 var (
 	UnprocessableEntity = errors.New("unprocessable entity")
 
+	AccessDenied = errors.New("access denied")
+
 	InvalidJsonPayload     = errors.New("invalid request payload")
 	InvalidQueryParameters = errors.New("invalid query parameters")
 	FailedToLoadTimeZone   = errors.New("failed to load timezone")
@@ -24,4 +26,7 @@ var (
 	EmailAlreadyExists        = errors.New("email already exists")
 	UsernameOrPasswordInvalid = errors.New("username or password invalid")
 	UserNotFound              = errors.New("user not found")
+
+	ConsumerNotFound         = errors.New("consumer not found")
+	NIKConsumerAlreadyExists = errors.New("nik consumer already exists")
 )

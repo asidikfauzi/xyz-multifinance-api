@@ -14,7 +14,7 @@ type Consumers struct {
 	Phone           string         `gorm:"type:varchar(45);not null" json:"phone"`
 	PlaceOfBirth    string         `gorm:"type:varchar(45);not null" json:"place_of_birth"`
 	DateOfBirth     string         `gorm:"type:varchar(45);not null" json:"date_of_birth"`
-	Salary          string         `gorm:"type:varchar(45);not null" json:"salary"`
+	Salary          float64        `gorm:"type:double;not null" json:"salary"`
 	KTPImage        string         `gorm:"type:varchar(255)" json:"ktp_image"`
 	SelfieImage     string         `gorm:"type:varchar(255)" json:"selfie_image"`
 	IsVerified      bool           `gorm:"default:false" json:"is_verified"`
