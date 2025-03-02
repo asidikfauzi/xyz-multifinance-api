@@ -57,7 +57,7 @@ func (c *consumerMysql) FindAll(q dto.QueryConsumer) (res []model.Consumers, tot
 }
 
 func (c *consumerMysql) FindById(id uuid.UUID) (res model.Consumers, err error) {
-	err = c.DB.Preload("Limits").Where("id = ?", id).First(&res).Error
+	err = c.DB.Preload("Limits").Where("deleted_at IS NULL AND id = ?", id).First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return res, constant.ConsumerNotFound
 	}
@@ -66,7 +66,7 @@ func (c *consumerMysql) FindById(id uuid.UUID) (res model.Consumers, err error) 
 }
 
 func (c *consumerMysql) FindByNIK(id string) (res model.Consumers, err error) {
-	err = c.DB.Where("nik = ?", id).First(&res).Error
+	err = c.DB.Where("deleted_at IS NULL AND nik = ?", id).First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return res, constant.ConsumerNotFound
 	}

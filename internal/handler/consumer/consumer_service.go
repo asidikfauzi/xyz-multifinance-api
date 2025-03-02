@@ -55,7 +55,7 @@ func (c *consumerService) FindAll(q dto.QueryConsumer) (res dto.ConsumersRespons
 			PlaceOfBirth: c.PlaceOfBirth,
 			DateOfBirth:  c.DateOfBirth,
 			Salary:       c.Salary,
-			KTPImage:     c.KTPImage,
+			KtpImage:     c.KTPImage,
 			SelfieImage:  c.SelfieImage,
 			IsVerified:   c.IsVerified,
 		})
@@ -89,7 +89,7 @@ func (c *consumerService) FindById(id uuid.UUID) (res dto.ConsumerResponse, code
 		PlaceOfBirth:    consumerData.PlaceOfBirth,
 		DateOfBirth:     consumerData.DateOfBirth,
 		Salary:          consumerData.Salary,
-		KTPImage:        consumerData.KTPImage,
+		KtpImage:        consumerData.KTPImage,
 		SelfieImage:     consumerData.SelfieImage,
 		IsVerified:      consumerData.IsVerified,
 		RejectionReason: consumerData.RejectionReason,
@@ -110,6 +110,13 @@ func (c *consumerService) FindById(id uuid.UUID) (res dto.ConsumerResponse, code
 }
 
 func (c *consumerService) Create(input dto.CreateConsumerInput) (res dto.ConsumerResponse, code int, err error) {
+	if input.ConsumerId != uuid.Nil {
+		_, err := c.consumerMySQL.FindById(input.ConsumerId)
+		if err == nil {
+			return res, http.StatusConflict, constant.ConsumerAlreadyExists
+		}
+	}
+
 	_, err = c.consumerMySQL.FindByNIK(input.NIK)
 	if err == nil {
 		return res, http.StatusConflict, constant.NIKConsumerAlreadyExists
@@ -124,9 +131,9 @@ func (c *consumerService) Create(input dto.CreateConsumerInput) (res dto.Consume
 		PlaceOfBirth: input.PlaceOfBirth,
 		DateOfBirth:  input.DateOfBirth,
 		Salary:       input.Salary,
-		KTPImage:     input.KTPImage,
+		KTPImage:     input.KtpImage,
 		SelfieImage:  input.SelfieImage,
-		UserID:       input.UserID,
+		UserID:       input.UserId,
 	}
 
 	newConsumer, err := c.consumerMySQL.Create(consumerData)
@@ -143,7 +150,7 @@ func (c *consumerService) Create(input dto.CreateConsumerInput) (res dto.Consume
 		PlaceOfBirth: newConsumer.PlaceOfBirth,
 		DateOfBirth:  newConsumer.DateOfBirth,
 		Salary:       math.Round(newConsumer.Salary*100) / 100,
-		KTPImage:     newConsumer.KTPImage,
+		KtpImage:     newConsumer.KTPImage,
 		SelfieImage:  newConsumer.SelfieImage,
 		CreatedAt:    utils.FormatTime(newConsumer.CreatedAt),
 	}
@@ -176,7 +183,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		PlaceOfBirth: input.PlaceOfBirth,
 		DateOfBirth:  input.DateOfBirth,
 		Salary:       math.Round(input.Salary*100) / 100,
-		KTPImage:     input.KTPImage,
+		KTPImage:     input.KtpImage,
 		SelfieImage:  input.SelfieImage,
 	}
 
@@ -194,7 +201,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		PlaceOfBirth: editConsumer.PlaceOfBirth,
 		DateOfBirth:  editConsumer.DateOfBirth,
 		Salary:       editConsumer.Salary,
-		KTPImage:     editConsumer.KTPImage,
+		KtpImage:     editConsumer.KTPImage,
 		SelfieImage:  editConsumer.SelfieImage,
 		UpdatedAt:    utils.FormatTime(editConsumer.UpdatedAt),
 	}

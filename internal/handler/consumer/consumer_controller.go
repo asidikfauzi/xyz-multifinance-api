@@ -105,7 +105,14 @@ func (cc *ConsumersController) Create(c *gin.Context) {
 		return
 	}
 
-	req.UserID = userID.(uuid.UUID)
+	consumerID, exists := c.Get("consumer_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	req.UserId = userID.(uuid.UUID)
+	req.ConsumerId = consumerID.(uuid.UUID)
 
 	validate := utils.FormatValidationError(req)
 	if len(validate) > 0 {

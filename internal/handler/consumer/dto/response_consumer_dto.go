@@ -20,7 +20,7 @@ type ConsumerResponse struct {
 	PlaceOfBirth    string             `json:"place_of_birth"`
 	DateOfBirth     string             `json:"date_of_birth"`
 	Salary          float64            `json:"salary"`
-	KTPImage        string             `json:"ktp_image"`
+	KtpImage        string             `json:"ktp_image"`
 	SelfieImage     string             `json:"selfie_image"`
 	IsVerified      bool               `json:"is_verified"`
 	RejectionReason string             `json:"rejection_reason"`

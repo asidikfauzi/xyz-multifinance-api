@@ -85,7 +85,7 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		PlaceOfBirth:    checkConsumer.PlaceOfBirth,
 		DateOfBirth:     checkConsumer.DateOfBirth,
 		Salary:          checkConsumer.Salary,
-		KTPImage:        checkConsumer.KTPImage,
+		KtpImage:        checkConsumer.KTPImage,
 		SelfieImage:     checkConsumer.SelfieImage,
 		IsVerified:      checkConsumer.IsVerified,
 		RejectionReason: checkConsumer.RejectionReason,

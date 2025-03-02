@@ -8,6 +8,6 @@ type UpdateConsumerInput struct {
 	PlaceOfBirth string  `json:"place_of_birth" validate:"required"`
 	DateOfBirth  string  `json:"date_of_birth" validate:"required,datetime=02-01-2006"`
 	Salary       float64 `json:"salary" validate:"required"`
-	KTPImage     string  `json:"ktp_image" validate:"required"`
+	KtpImage     string  `json:"ktp_image" validate:"required"`
 	SelfieImage  string  `json:"selfie_image" validate:"required"`
 }

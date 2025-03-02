@@ -89,3 +89,288 @@ Request: {
     "tenor": 12
 }
 Response: {"code":201,"message":"transaction successfully","data":{"id":"7d592ce4-fd24-4b1d-baca-e79e00a4616e","contract_number":"CN-20250302-OCH804","otr":1000000,"tenor":12,"admin_fee":5000,"installment_amt":91666.67,"amount_interest":100000,"asset_name":"Airpods 2","consumer":{"id":"09658616-76a3-4203-a02c-a1cd19988f63","name":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":""},"limit":{"id":"b6321180-c53b-4093-ba4c-874d2e08d096","limit_available":2799980},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 21:44:44 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 403 106.834µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/02 21:44:48 [GET] /api/v1/consumer/09658616-76a3-4203-a02c-a1cd19988f63 ::1 200 15.701334ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"09658616-76a3-4203-a02c-a1cd19988f63","name":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"02-03-2025 15:51:51","updated_at":"02-03-2025 16:50:01","limit":{"id":"b6321180-c53b-4093-ba4c-874d2e08d096","limit_available":2799980,"created_at":"02-03-2025 16:50:01","updated_at":"02-03-2025 21:23:26"}}}
+2025/03/02 21:45:20 [POST] /api/v1/consumer ::1 409 5.82225ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":409,"message":"nik consumer already exists"}
+2025/03/02 21:45:30 [POST] /api/v1/consumer ::1 201 16.637833ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":201,"message":"successfully created consumer","data":{"id":"448ae4d4-9917-4d03-a38a-523a842ed49c","name":"1234567890123450","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"01-01-0001 07:07:12"}}
+2025/03/02 21:53:29 [POST] /api/v1/consumer ::1 409 13.831958ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":409,"message":"consumer already exists"}
+2025/03/02 21:53:47 [POST] /api/v1/consumer ::1 422 102.25µs
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"consumer_id":["consumer i d cannot be empty"]}}
+2025/03/02 21:55:57 [POST] /api/v1/consumer ::1 201 88.555625ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":201,"message":"successfully created consumer","data":{"id":"fe3e3d19-e707-4b10-9c76-67cd2b4a9895","name":"1234567890123450","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"01-01-0001 07:07:12"}}
+2025/03/02 21:56:04 [POST] /api/v1/consumer ::1 409 4.835291ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":409,"message":"nik consumer already exists"}
+2025/03/02 21:56:15 [POST] /api/v1/consumer ::1 201 19.589417ms
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":201,"message":"successfully created consumer","data":{"id":"6926e1f8-6730-4c29-aa8f-320b459fa453","name":"1234567890123451","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"01-01-0001 07:07:12"}}
+2025/03/02 21:56:18 [POST] /api/v1/consumer ::1 422 328.959µs
+Request: {
+    "nik" : "12345678901234513",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 21:56:25 [POST] /api/v1/consumer ::1 422 298.75µs
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 21:58:36 [POST] /api/v1/consumer ::1 422 249.25µs
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 21:58:39 [POST] /api/v1/consumer ::1 422 434.875µs
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 22:00:02 [POST] /api/v1/consumer ::1 422 305.334µs
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 22:00:57 [POST] /api/v1/consumer ::1 422 2.901125ms
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["n i k must be exactly 16 characters long"]}}
+2025/03/02 22:03:23 [POST] /api/v1/consumer ::1 422 767.833µs
+Request: {
+    "nik" : "12345678901234511",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["nik must be exactly 16 characters long"]}}
+2025/03/02 22:03:27 [GET] /api/v1/consumer/09658616-76a3-4203-a02c-a1cd19988f63 ::1 404 52.291µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 22:03:31 [PATCH] /api/v1/limit/approval/09658616-76a3-4203-a02c-a1cd19988f63 ::1 403 38.292µs
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 5000000
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/02 22:03:49 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 403 22.208µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/02 22:07:13 [POST] /api/v1/consumer ::1 422 2.959167ms
+Request: {
+    "nik" : "123456789012345111",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["nik must be exactly 16 characters long"]}}
+2025/03/02 22:07:15 [POST] /api/v1/consumer ::1 409 90.558958ms
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":409,"message":"consumer already exists"}
+2025/03/02 22:07:24 [POST] /api/v1/consumer ::1 422 300.959µs
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"ktp_image":["k t p image cannot be empty"]}}
+2025/03/02 22:09:37 [POST] /api/v1/consumer ::1 422 234.666µs
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"ktp_image":["k t p image cannot be empty"]}}
+2025/03/02 22:09:43 [POST] /api/v1/consumer ::1 422 292.167µs
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"ktp_image":["k t p image cannot be empty"]}}
+2025/03/02 22:10:17 [POST] /api/v1/consumer ::1 422 806.791µs
+Request: {
+    "nik" : "1234567890123451",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"ktp_image":["ktp image cannot be empty"]}}

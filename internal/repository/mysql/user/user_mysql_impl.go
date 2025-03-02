@@ -30,7 +30,10 @@ func (r *userMysql) Create(user model.Users) (res model.Users, err error) {
 }
 
 func (r *userMysql) FindByEmail(email string) (res model.Users, err error) {
-	err = r.DB.Preload("Role").Preload("Consumer").Where("email = ?", email).First(&res).Error
+	err = r.DB.Preload("Role").
+		Preload("Consumer").
+		Where("deleted_at IS NULL AND email = ?", email).
+		First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return res, constant.UserNotFound
 	}

@@ -9,6 +9,10 @@ import (
 )
 
 func FormatFieldName(fieldName string) string {
+	if fieldName == strings.ToUpper(fieldName) {
+		return strings.ToLower(fieldName)
+	}
+
 	var formatted strings.Builder
 	runes := []rune(fieldName)
 
