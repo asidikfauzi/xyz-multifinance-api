@@ -2,5 +2,5 @@ package constant
 
 const (
 	AdminFee float64 = 5000
-	Interest int     = 10
+	Interest float64 = 10.0
 )

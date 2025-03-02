@@ -12,7 +12,6 @@ func RegisterRoutes(v1 *gin.RouterGroup, consumerController *ConsumersController
 	{
 		consumerGroup.GET("", consumerController.FindAll)
 		consumerGroup.GET("/:id", consumerController.FindById)
-		consumerGroup.POST("", consumerController.Create)
 		consumerGroup.PUT("/:id", consumerController.Update)
 	}
 }

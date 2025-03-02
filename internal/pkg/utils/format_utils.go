@@ -43,9 +43,9 @@ func FormatTime(t time.Time) *string {
 	return &formattedTime
 }
 
-func FormatDefaultString(str *string, defaultValue string) *string {
+func FormatDefaultString(str *string, defaultValue string) string {
 	if str != nil {
-		return str
+		return *str
 	}
-	return &defaultValue
+	return defaultValue
 }

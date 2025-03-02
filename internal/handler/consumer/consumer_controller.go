@@ -81,54 +81,6 @@ func (cc *ConsumersController) FindById(c *gin.Context) {
 	response.Success(c, code, "successfully get consumer by id", res)
 }
 
-func (cc *ConsumersController) Create(c *gin.Context) {
-	role, exists := c.Get("role")
-	if !exists {
-		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
-		return
-	}
-
-	if role != constant.USER {
-		response.Error(c, http.StatusForbidden, constant.AccessDenied.Error(), nil)
-		return
-	}
-
-	var req dto.CreateConsumerInput
-	if err := c.ShouldBindJSON(&req); err != nil {
-		response.Error(c, http.StatusBadRequest, constant.InvalidJsonPayload.Error(), err.Error())
-		return
-	}
-
-	userID, exists := c.Get("user_id")
-	if !exists {
-		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
-		return
-	}
-
-	consumerID, exists := c.Get("consumer_id")
-	if !exists {
-		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
-		return
-	}
-
-	req.UserId = userID.(uuid.UUID)
-	req.ConsumerId = consumerID.(uuid.UUID)
-
-	validate := utils.FormatValidationError(req)
-	if len(validate) > 0 {
-		response.Error(c, http.StatusUnprocessableEntity, constant.UnprocessableEntity.Error(), validate)
-		return
-	}
-
-	data, code, err := cc.consumersService.Create(req)
-	if err != nil {
-		response.Error(c, code, err.Error(), nil)
-		return
-	}
-
-	response.Success(c, code, "successfully created consumer", data)
-}
-
 func (cc *ConsumersController) Update(c *gin.Context) {
 	role, exists := c.Get("role")
 	if !exists {

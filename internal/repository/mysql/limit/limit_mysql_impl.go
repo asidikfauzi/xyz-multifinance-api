@@ -15,7 +15,7 @@ func NewLimitsMySQL(db *gorm.DB) LimitsMySQL {
 	}
 }
 
-func (c *limitMysql) ApprovalConsumer(consumer model.Consumers, limits model.Limits) (res model.Limits, err error) {
+func (c *limitMysql) ApprovalConsumer(consumer *model.Consumers, limits model.Limits) (res model.Limits, err error) {
 	tx := c.DB.Begin()
 
 	if err := tx.Create(&limits).Error; err != nil {

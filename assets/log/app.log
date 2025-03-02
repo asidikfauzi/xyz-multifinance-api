@@ -374,3 +374,240 @@ Request: {
     "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
 }
 Response: {"code":422,"message":"unprocessable entity","details":{"ktp_image":["ktp image cannot be empty"]}}
+2025/03/02 22:24:39 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 6.732083ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"c65bf943-70d3-4ac6-bf35-3fed1913ae2f","name":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":""}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:29:19 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 26.841208ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:29:30 [GET] /api/v1/consumer/09658616-76a3-4203-a02c-a1cd19988f63 ::1 404 11.815458ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 22:29:49 [GET] /api/v1/consumer/c65bf943-70d3-4ac6-bf35-3fed1913ae2f ::1 200 12.953875ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"c65bf943-70d3-4ac6-bf35-3fed1913ae2f","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"02-03-2025 22:21:12","updated_at":"02-03-2025 22:21:12"}}
+2025/03/02 22:32:07 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 43.483083ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:32:09 [GET] /api/v1/consumer/c65bf943-70d3-4ac6-bf35-3fed1913ae2f ::1 200 7.751667ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"c65bf943-70d3-4ac6-bf35-3fed1913ae2f","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"02-03-2025 22:21:12","updated_at":"02-03-2025 22:21:12"}}
+2025/03/02 22:45:17 [GET] /api/v1/consumer/01a7da8e-f22a-41f1-b996-4231938ad7c0 ::1 404 336.125µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 22:47:48 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 9.958042ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:51:03 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 44.170875ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 22:39:48"}}
+2025/03/02 22:53:21 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 7.791667ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:53:24 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 6.939875ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 22:39:48"}}
+2025/03/02 22:53:38 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 4.713959ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 22:39:48"}}
+2025/03/02 22:55:11 [PUT] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 29.728625ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"02-03-2025 22:55:11"}}
+2025/03/02 22:55:34 [PUT] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 14.8515ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"02-03-2025 22:55:34"}}
+2025/03/02 22:55:42 [PUT] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 18.40625ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"02-03-2025 22:55:42"}}
+2025/03/02 22:56:35 [PUT] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 117.598416ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"02-03-2025 22:56:35"}}
+2025/03/02 22:56:44 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 403 154.167µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/02 22:56:57 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 5.468792ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:57:09 [PATCH] /api/v1/limit/approval/09658616-76a3-4203-a02c-a1cd19988f63 ::1 404 6.062291ms
+Request: {
+    "is_verified" : false,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 5000000
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 22:57:17 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 9.186541ms
+Request: {
+    "is_verified" : false,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 5000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"00000000-0000-0000-0000-000000000000","limit_available":0}}
+2025/03/02 22:57:24 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 5.871125ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:57:26 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 2.456083ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:57:42 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 17.886917ms
+Request: {
+    "is_verified" : false,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 5000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"00000000-0000-0000-0000-000000000000","limit_available":0}}
+2025/03/02 22:58:06 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 19.030666ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:58:27 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false ::1 200 35.229583ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"Data diri anda belum lengkap"}],"page":{"total_items":1,"item_count":1,"items_per_page":1,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/02 22:58:30 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 14.623583ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 22:57:42"}}
+2025/03/02 23:02:23 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 152.716333ms
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":50000000,"created_at":"01-01-0001 07:07:12"}}
+2025/03/02 23:02:30 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 20.125292ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":50000000,"created_at":"02-03-2025 23:02:23","updated_at":"02-03-2025 23:02:23"}}}
+2025/03/02 23:03:03 [POST] /api/v1/transaction ::1 403 9.774208ms
+Request: {
+    "otr": 100000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/02 23:12:58 [POST] /api/v1/transaction ::1 201 146.640667ms
+Request: {
+    "otr": 1000100,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"f9a671d7-5f91-4186-a584-7abd53c4808e","contract_number":"CN-20250302-JEXZ8D","otr":1000100,"tenor":12,"admin_fee":5000,"installment_amt":91675.83,"amount_interest":100010,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":48899880},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:21:30 [POST] /api/v1/transaction ::1 201 23.2735ms
+Request: {
+    "otr": 3999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"7c717538-1564-4a7e-841a-5ed812de9b67","contract_number":"CN-20250302-T4KFZR","otr":3999999,"tenor":12,"admin_fee":5000,"installment_amt":367083.24,"amount_interest":399999.9,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":45595001.1},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:29:16 [POST] /api/v1/transaction ::1 403 16.461666ms
+Request: {
+    "otr": 399999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/02 23:29:19 [POST] /api/v1/transaction ::1 201 15.832292ms
+Request: {
+    "otr": 3999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"a22e42b4-c177-47b1-ac3c-c8be9ec6964c","contract_number":"CN-20250302-RZOTNG","otr":3999999,"tenor":12,"admin_fee":5000,"installment_amt":351663.46,"amount_interest":219962.53,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775039.47},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:39:51 [POST] /api/v1/transaction ::1 201 26.428125ms
+Request: {
+    "otr": 3999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"63ae6a34-c162-440f-9f17-446b9aea0bd5","contract_number":"CN-20250302-9EGZAT","otr":3999999,"tenor":12,"admin_fee":5000,"installment_amt":351663.46,"amount_interest":4219961.53,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775039.47},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:43:19 [POST] /api/v1/transaction ::1 403 8.428042ms
+Request: {
+    "otr": 399999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/02 23:43:21 [POST] /api/v1/transaction ::1 201 17.771416ms
+Request: {
+    "otr": 3999999,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"c45f3064-1600-47db-907c-1c6a3455224f","contract_number":"CN-20250302-SJZSMO","otr":3999999,"tenor":12,"admin_fee":5000,"installment_amt":351663.46,"amount_interest":4219961.53,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775039.47},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:46:17 [POST] /api/v1/transaction ::1 201 19.388ms
+Request: {
+    "otr": 3999998,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"e35453b2-d200-4cf6-8f0d-474d792fedce","contract_number":"CN-20250302-35E25Y","otr":3999998,"tenor":12,"admin_fee":5000,"installment_amt":351663.37,"amount_interest":219962.48,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.52},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 23:53:54 [POST] /api/v1/transaction ::1 201 82.074833ms
+Request: {
+    "otr": 3999998,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"0812692a-e129-4d00-be67-8b42fa4d0b15","contract_number":"CN-20250302-L3TD81","otr":3999998,"tenor":12,"admin_fee":5000,"installment_amt":351663.37,"amount_interest":219962.44,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56},"created_at":"0001-01-01T00:00:00Z"}}

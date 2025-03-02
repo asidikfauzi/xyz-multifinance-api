@@ -31,7 +31,7 @@ func (c *consumerMysql) FindAll(q dto.QueryConsumer) (res []model.Consumers, tot
 
 	offset := (q.Page - 1) * q.Limit
 
-	query := c.DB.Model(&model.Consumers{}).Where("deleted_at IS NULL")
+	query := c.DB.Model(&model.Consumers{}).Preload("User").Where("deleted_at IS NULL AND nik != ''")
 
 	if q.Search != "" {
 		query = query.Where("nik LIKE ? OR full_name LIKE ? OR legal_name LIKE ? OR place_of_birth LIKE ?", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%")
@@ -57,7 +57,9 @@ func (c *consumerMysql) FindAll(q dto.QueryConsumer) (res []model.Consumers, tot
 }
 
 func (c *consumerMysql) FindById(id uuid.UUID) (res model.Consumers, err error) {
-	err = c.DB.Preload("Limits").Where("deleted_at IS NULL AND id = ?", id).First(&res).Error
+	err = c.DB.Preload("Limits").
+		Preload("User").
+		Where("deleted_at IS NULL AND id = ?", id).First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
 		return res, constant.ConsumerNotFound
 	}
@@ -74,18 +76,14 @@ func (c *consumerMysql) FindByNIK(id string) (res model.Consumers, err error) {
 	return res, err
 }
 
-func (c *consumerMysql) Create(input model.Consumers) (res model.Consumers, err error) {
-	if err = c.DB.Create(&input).Error; err != nil {
-		return res, err
-	}
-
-	return input, nil
-}
-
 func (c *consumerMysql) Update(input model.Consumers) (res model.Consumers, err error) {
-	if err = c.DB.Updates(&input).Error; err != nil {
+	if err = c.DB.Model(&input).Updates(&input).Error; err != nil {
 		return res, err
 	}
 
-	return input, nil
+	if err = c.DB.Preload("User").First(&res, input.ID).Error; err != nil {
+		return res, err
+	}
+
+	return res, nil
 }

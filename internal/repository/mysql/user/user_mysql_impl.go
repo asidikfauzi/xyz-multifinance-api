@@ -4,6 +4,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/model"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
 	"errors"
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -18,14 +19,25 @@ func NewUserMySQL(db *gorm.DB) UsersMySQL {
 }
 
 func (r *userMysql) Create(user model.Users) (res model.Users, err error) {
-	if err = r.DB.Create(&user).Error; err != nil {
+	tx := r.DB.Begin()
+
+	if err = tx.Create(&user).Error; err != nil {
+		tx.Rollback()
 		return res, err
 	}
 
-	if err = r.DB.Preload("Role").First(&res, "id = ?", user.ID).Error; err != nil {
+	consumer := model.Consumers{ID: uuid.New(), UserID: user.ID}
+	if err = tx.Create(&consumer).Error; err != nil {
+		tx.Rollback()
 		return res, err
 	}
 
+	if err = tx.Preload("Role").Preload("Consumer").First(&res, "id = ?", user.ID).Error; err != nil {
+		tx.Rollback()
+		return res, err
+	}
+
+	tx.Commit()
 	return res, nil
 }
 

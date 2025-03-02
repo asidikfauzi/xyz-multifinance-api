@@ -13,7 +13,8 @@ type ConsumersResponseWithPage struct {
 
 type ConsumerResponse struct {
 	ID              uuid.UUID          `json:"id"`
-	NIK             string             `json:"name"`
+	Email           string             `json:"email"`
+	NIK             string             `json:"nik"`
 	FullName        string             `json:"full_name"`
 	LegalName       string             `json:"legal_name"`
 	Phone           string             `json:"phone"`

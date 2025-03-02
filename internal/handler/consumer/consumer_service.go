@@ -47,17 +47,19 @@ func (c *consumerService) FindAll(q dto.QueryConsumer) (res dto.ConsumersRespons
 
 	for _, c := range consumers {
 		res.Data = append(res.Data, dto.ConsumerResponse{
-			ID:           c.ID,
-			NIK:          c.NIK,
-			FullName:     c.FullName,
-			LegalName:    c.LegalName,
-			Phone:        c.Phone,
-			PlaceOfBirth: c.PlaceOfBirth,
-			DateOfBirth:  c.DateOfBirth,
-			Salary:       c.Salary,
-			KtpImage:     c.KTPImage,
-			SelfieImage:  c.SelfieImage,
-			IsVerified:   c.IsVerified,
+			ID:              c.ID,
+			Email:           c.User.Email,
+			NIK:             utils.FormatDefaultString(c.NIK, ""),
+			FullName:        c.FullName,
+			LegalName:       c.LegalName,
+			Phone:           c.Phone,
+			PlaceOfBirth:    c.PlaceOfBirth,
+			DateOfBirth:     c.DateOfBirth,
+			Salary:          c.Salary,
+			KtpImage:        c.KTPImage,
+			SelfieImage:     c.SelfieImage,
+			IsVerified:      c.IsVerified,
+			RejectionReason: c.RejectionReason,
 		})
 	}
 
@@ -82,7 +84,8 @@ func (c *consumerService) FindById(id uuid.UUID) (res dto.ConsumerResponse, code
 
 	res = dto.ConsumerResponse{
 		ID:              consumerData.ID,
-		NIK:             consumerData.NIK,
+		Email:           consumerData.User.Email,
+		NIK:             utils.FormatDefaultString(consumerData.NIK, ""),
 		FullName:        consumerData.FullName,
 		LegalName:       consumerData.LegalName,
 		Phone:           consumerData.Phone,
@@ -109,55 +112,6 @@ func (c *consumerService) FindById(id uuid.UUID) (res dto.ConsumerResponse, code
 	return res, http.StatusOK, nil
 }
 
-func (c *consumerService) Create(input dto.CreateConsumerInput) (res dto.ConsumerResponse, code int, err error) {
-	if input.ConsumerId != uuid.Nil {
-		_, err := c.consumerMySQL.FindById(input.ConsumerId)
-		if err == nil {
-			return res, http.StatusConflict, constant.ConsumerAlreadyExists
-		}
-	}
-
-	_, err = c.consumerMySQL.FindByNIK(input.NIK)
-	if err == nil {
-		return res, http.StatusConflict, constant.NIKConsumerAlreadyExists
-	}
-
-	consumerData := model.Consumers{
-		ID:           uuid.New(),
-		NIK:          input.NIK,
-		FullName:     input.FullName,
-		LegalName:    input.LegalName,
-		Phone:        input.Phone,
-		PlaceOfBirth: input.PlaceOfBirth,
-		DateOfBirth:  input.DateOfBirth,
-		Salary:       input.Salary,
-		KTPImage:     input.KtpImage,
-		SelfieImage:  input.SelfieImage,
-		UserID:       input.UserId,
-	}
-
-	newConsumer, err := c.consumerMySQL.Create(consumerData)
-	if err != nil {
-		return res, http.StatusInternalServerError, err
-	}
-
-	res = dto.ConsumerResponse{
-		ID:           newConsumer.ID,
-		NIK:          newConsumer.NIK,
-		FullName:     newConsumer.FullName,
-		LegalName:    newConsumer.LegalName,
-		Phone:        newConsumer.Phone,
-		PlaceOfBirth: newConsumer.PlaceOfBirth,
-		DateOfBirth:  newConsumer.DateOfBirth,
-		Salary:       math.Round(newConsumer.Salary*100) / 100,
-		KtpImage:     newConsumer.KTPImage,
-		SelfieImage:  newConsumer.SelfieImage,
-		CreatedAt:    utils.FormatTime(newConsumer.CreatedAt),
-	}
-
-	return res, http.StatusCreated, nil
-}
-
 func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (res dto.ConsumerResponse, code int, err error) {
 	checkConsumer, err := c.consumerMySQL.FindById(id)
 	if err != nil {
@@ -167,7 +121,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		return res, http.StatusInternalServerError, err
 	}
 
-	if checkConsumer.NIK != input.NIK {
+	if checkConsumer.NIK != nil && *checkConsumer.NIK != input.NIK {
 		_, err = c.consumerMySQL.FindByNIK(input.NIK)
 		if err == nil {
 			return res, http.StatusConflict, constant.NIKConsumerAlreadyExists
@@ -176,7 +130,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 
 	consumerData := model.Consumers{
 		ID:           id,
-		NIK:          input.NIK,
+		NIK:          &input.NIK,
 		FullName:     input.FullName,
 		LegalName:    input.LegalName,
 		Phone:        input.Phone,
@@ -194,7 +148,8 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 
 	res = dto.ConsumerResponse{
 		ID:           editConsumer.ID,
-		NIK:          editConsumer.NIK,
+		Email:        editConsumer.User.Email,
+		NIK:          utils.FormatDefaultString(editConsumer.NIK, ""),
 		FullName:     editConsumer.FullName,
 		LegalName:    editConsumer.LegalName,
 		Phone:        editConsumer.Phone,

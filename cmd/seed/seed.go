@@ -30,5 +30,14 @@ func main() {
 		db.FirstOrCreate(&users[i], model.Users{ID: user.ID})
 	}
 
+	// Seeding Consumers
+	consumers := []model.Consumers{
+		{ID: uuid.New(), UserID: users[1].ID},
+	}
+
+	for i, consumer := range consumers {
+		db.FirstOrCreate(&consumers[i], model.Consumers{ID: consumer.ID})
+	}
+
 	log.Println("Seeding completed successfully!")
 }

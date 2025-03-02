@@ -30,7 +30,7 @@ func NewAuthService(u user.UsersMySQL, r role.RolesMySQL) AuthsService {
 }
 
 func (a *authService) Register(registerInput dto.RegisterInput) (res dto.RegisterResponse, code int, err error) {
-	if _, err := a.roleMySQL.FindById(registerInput.RoleID); err != nil {
+	if _, err := a.roleMySQL.FindById(registerInput.RoleId); err != nil {
 		if errors.Is(err, constant.RoleNotFound) {
 			return res, http.StatusNotFound, constant.RoleNotFound
 		}
@@ -45,7 +45,7 @@ func (a *authService) Register(registerInput dto.RegisterInput) (res dto.Registe
 		ID:       uuid.New(),
 		Email:    registerInput.Email,
 		Password: utils.HashPassword(registerInput.Password),
-		RoleID:   registerInput.RoleID,
+		RoleID:   registerInput.RoleId,
 	}
 
 	createdUser, err := a.userMySQL.Create(userData)
@@ -59,10 +59,11 @@ func (a *authService) Register(registerInput dto.RegisterInput) (res dto.Registe
 	}
 
 	return dto.RegisterResponse{
-		ID:        createdUser.ID,
-		Email:     createdUser.Email,
-		Role:      createdUser.Role.Name,
-		CreatedAt: localTime,
+		ID:         createdUser.ID,
+		Email:      createdUser.Email,
+		Role:       createdUser.Role.Name,
+		ConsumerId: createdUser.Consumer[0].ID,
+		CreatedAt:  localTime,
 	}, http.StatusCreated, nil
 }
 
@@ -104,10 +105,11 @@ func (a *authService) Login(loginInput dto.LoginInput) (res dto.LoginResponse, c
 
 	res = dto.LoginResponse{
 		Users: dto.RegisterResponse{
-			ID:        userData.ID,
-			Email:     userData.Email,
-			Role:      userData.Role.Name,
-			CreatedAt: localTime,
+			ID:         userData.ID,
+			Email:      userData.Email,
+			Role:       userData.Role.Name,
+			ConsumerId: consumerID,
+			CreatedAt:  localTime,
 		},
 		Token: token,
 	}

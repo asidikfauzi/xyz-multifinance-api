@@ -58,7 +58,7 @@ func (c *limitService) ApprovalConsumer(id uuid.UUID, input dto.ApprovalLimitInp
 		CreatedBy:      input.CreatedBy,
 	}
 
-	newLimit, err := c.limitMySQL.ApprovalConsumer(consumerData, limitData)
+	newLimit, err := c.limitMySQL.ApprovalConsumer(&consumerData, limitData)
 	if err != nil {
 		return res, http.StatusInternalServerError, err
 	}

@@ -1,4 +1,4 @@
 # xyz-multifinance-api
 
-![img.png](img.png)
+![img.png](assets/image/flow_dapatkan_limit.png)
 

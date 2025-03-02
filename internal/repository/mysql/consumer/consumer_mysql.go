@@ -10,6 +10,5 @@ type ConsumersMySQL interface {
 	FindAll(dto.QueryConsumer) ([]model.Consumers, int64, error)
 	FindById(uuid.UUID) (model.Consumers, error)
 	FindByNIK(string) (model.Consumers, error)
-	Create(model.Consumers) (model.Consumers, error)
 	Update(model.Consumers) (model.Consumers, error)
 }
