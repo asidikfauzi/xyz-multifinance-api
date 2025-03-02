@@ -847,3 +847,45 @@ Request: {
     "amount_paid": 351663.37
 }
 Response: {"code":409,"message":"payment has already been completed"}
+2025/03/02 23:21:33 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false 192.168.65.1 403 124.167µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/02 23:21:43 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 404 382.166µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 23:21:56 [PUT] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 404 22.260916ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 23:22:08 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 403 602.542µs
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/02 23:22:22 [POST] /api/v1/transaction 192.168.65.1 403 37.240917ms
+Request: {
+    "otr": 3999998,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"this consumer has no limit"}
+2025/03/02 23:22:41 [POST] /api/v1/payment 192.168.65.1 404 24.586333ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":404,"message":"contract number not found"}
