@@ -2,6 +2,8 @@ package transaction
 
 import (
 	"asidikfauzi/xyz-multifinance-api/internal/model"
+	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
+	"errors"
 	"gorm.io/gorm"
 )
 
@@ -13,6 +15,15 @@ func NewTransactionsMySQL(db *gorm.DB) TransactionsMySQL {
 	return &transactionMySQL{
 		DB: db,
 	}
+}
+
+func (t *transactionMySQL) FindByContractNumber(contractNumber string) (res model.Transactions, err error) {
+	err = t.DB.Where("deleted_at IS NULL AND contract_number = ?", contractNumber).First(&res).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		return res, constant.ContractNumberNotFound
+	}
+
+	return res, err
 }
 
 func (t *transactionMySQL) Transaction(transactions model.Transactions, limits model.Limits) (res model.Transactions, err error) {

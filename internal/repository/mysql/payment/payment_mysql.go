@@ -6,5 +6,6 @@ import (
 )
 
 type PaymentsMySQL interface {
-	FindById(uuid uuid.UUID) (model.Payments, error)
+	CountPaymentsByCustomerID(uuid.UUID) (int64, error)
+	Create(*model.Payments) (model.Payments, error)
 }

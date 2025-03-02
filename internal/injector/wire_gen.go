@@ -11,11 +11,13 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/auth"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/limit"
-	"asidikfauzi/xyz-multifinance-api/internal/handler/transaction"
+	"asidikfauzi/xyz-multifinance-api/internal/handler/payment"
+	transaction2 "asidikfauzi/xyz-multifinance-api/internal/handler/transaction"
 	consumer2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/consumer"
 	limit2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/limit"
+	payment2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/payment"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/role"
-	transaction2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/transaction"
+	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/transaction"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/user"
 )
 
@@ -51,13 +53,24 @@ func InitializedLimitModule() *limit.LimitsController {
 	return limitsController
 }
 
+// Injectors from payment_wire.go:
+
+func InitializedPaymentModule() *payment.PaymentsController {
+	db := database.InitDatabase()
+	paymentsMySQL := payment2.NewPaymentsMySQL(db)
+	transactionsMySQL := transaction.NewTransactionsMySQL(db)
+	paymentsService := payment.NewPaymentService(paymentsMySQL, transactionsMySQL)
+	paymentsController := payment.NewPaymentsController(paymentsService)
+	return paymentsController
+}
+
 // Injectors from transaction_wire.go:
 
-func InitializedTransactionModule() *transaction.TransactionsController {
+func InitializedTransactionModule() *transaction2.TransactionsController {
 	db := database.InitDatabase()
-	transactionsMySQL := transaction2.NewTransactionsMySQL(db)
+	transactionsMySQL := transaction.NewTransactionsMySQL(db)
 	consumersMySQL := consumer2.NewConsumersMySQL(db)
-	transactionsService := transaction.NewTransactionService(transactionsMySQL, consumersMySQL)
-	transactionsController := transaction.NewTransactionsController(transactionsService)
+	transactionsService := transaction2.NewTransactionService(transactionsMySQL, consumersMySQL)
+	transactionsController := transaction2.NewTransactionsController(transactionsService)
 	return transactionsController
 }

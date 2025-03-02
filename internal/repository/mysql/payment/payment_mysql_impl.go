@@ -12,30 +12,31 @@ type paymentMysql struct {
 	DB *gorm.DB
 }
 
-func NewRolesMySQL(db *gorm.DB) PaymentsMySQL {
+func NewPaymentsMySQL(db *gorm.DB) PaymentsMySQL {
 	return &paymentMysql{
 		DB: db,
 	}
 }
 
-func (r *paymentMysql) FindById(id uuid.UUID) (res model.Payments, err error) {
-	err = r.DB.Where("deleted_at IS NULL AND id = ?", id).First(&res).Error
+func (r *paymentMysql) CountPaymentsByCustomerID(customerID uuid.UUID) (count int64, err error) {
+	err = r.DB.Table("payments").
+		Select("COUNT(payments.id)").
+		Joins("JOIN transactions ON transactions.id = payments.transaction_id").
+		Where("transactions.consumer_id = ? AND payments.deleted_at IS NULL", customerID).
+		Count(&count).Error
+
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return res, constant.RoleNotFound
+		return 0, constant.CountPaymentNotFound
 	}
 
-	return res, err
+	return count, err
 }
 
-func (r *paymentMysql) FindLastPaymentCustomerID(id uuid.UUID) (res model.Payments, err error) {
-	err = r.DB.Where("deleted_at IS NULL AND customer_id = ?", id).
-		Order("created_at DESC").
-		Limit(1).
-		First(&res).Error
-
-	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return res, constant.RoleNotFound
+func (r *paymentMysql) Create(input *model.Payments) (res model.Payments, err error) {
+	err = r.DB.Create(input).Error
+	if err != nil {
+		return res, err
 	}
 
-	return res, err
+	return *input, nil
 }

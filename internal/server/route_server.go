@@ -4,6 +4,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/auth"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/limit"
+	"asidikfauzi/xyz-multifinance-api/internal/handler/payment"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/transaction"
 	"asidikfauzi/xyz-multifinance-api/internal/injector"
 	"fmt"
@@ -36,6 +37,9 @@ func InitializedServer() *Server {
 
 	transactionModule := injector.InitializedTransactionModule()
 	transaction.RegisterRoutes(v1, transactionModule)
+
+	paymentModule := injector.InitializedPaymentModule()
+	payment.RegisterRoutes(v1, paymentModule)
 
 	return &Server{Engine: r}
 }

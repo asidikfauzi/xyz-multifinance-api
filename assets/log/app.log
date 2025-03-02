@@ -611,3 +611,47 @@ Request: {
     "tenor": 12
 }
 Response: {"code":201,"message":"transaction successfully","data":{"id":"0812692a-e129-4d00-be67-8b42fa4d0b15","contract_number":"CN-20250302-L3TD81","otr":3999998,"tenor":12,"admin_fee":5000,"installment_amt":351663.37,"amount_interest":219962.44,"asset_name":"Airpods 2","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 00:03:52 [POST] /api/v1/transaction ::1 403 59.875µs
+Request: {
+    "otr": 3999998,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/03 01:49:14 [POST] /api/v1/payment ::1 403 57.292µs
+Request: {
+    "contract_number": "3999998",
+    "amount_paid": 100
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/03 01:49:32 [POST] /api/v1/payment ::1 403 49.917µs
+Request: {
+    "contract_number": "3999998",
+    "amount_paid": 100
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/03 01:49:41 [POST] /api/v1/payment ::1 404 10.164792ms
+Request: {
+    "contract_number": "3999998",
+    "amount_paid": 100
+}
+Response: {"code":404,"message":"contract number not found"}
+2025/03/03 01:49:51 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 11.164125ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56,"created_at":"02-03-2025 23:02:23","updated_at":"02-03-2025 23:53:54"}}}
+2025/03/03 02:05:16 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 403 91.666µs
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/03 02:05:21 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 14.786292ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56,"created_at":"02-03-2025 23:02:23","updated_at":"02-03-2025 23:53:54"}}}

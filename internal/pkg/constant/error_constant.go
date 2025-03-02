@@ -10,9 +10,6 @@ var (
 	InvalidJsonPayload     = errors.New("invalid request payload")
 	InvalidQueryParameters = errors.New("invalid query parameters")
 	FailedToLoadTimeZone   = errors.New("failed to load timezone")
-	UnexpectedError        = errors.New("unexpected error")
-	JsonUnmarshalError     = errors.New("json unmarshal error")
-	JsonMarshalError       = errors.New("json marshal error")
 
 	InvalidHeaderFormat             = errors.New("invalid header format")
 	MalformedToken                  = errors.New("malformed token")
@@ -31,7 +28,12 @@ var (
 	NIKConsumerAlreadyExists  = errors.New("nik consumer already exists")
 	ConsumerHasBeenGivenLimit = errors.New("this consumer has been given a limit")
 	ConsumerHasNoLimit        = errors.New("this consumer has no limit")
-	ConsumerAlreadyExists     = errors.New("consumer already exists")
+	ContractNumberNotFound    = errors.New("contract number not found")
 
 	InsufficientLimit = errors.New("insufficient limit: transaction amount exceeds available limit")
+
+	PaymentNotFound        = errors.New("payment not found")
+	AmountPaidMustBeEqual  = errors.New("amount paid must be equal to the installment amount")
+	CountPaymentNotFound   = errors.New("count payment not found")
+	PaymentAlreadyComplete = errors.New("payment has already been completed")
 )
