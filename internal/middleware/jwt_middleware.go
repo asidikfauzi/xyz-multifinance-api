@@ -14,9 +14,10 @@ import (
 )
 
 type JwtClaim struct {
-	ID    uuid.UUID
-	Email string
-	Role  constant.Roles
+	ID         uuid.UUID
+	Email      string
+	Role       constant.Roles
+	ConsumerID uuid.UUID
 	jwt.RegisteredClaims
 }
 
@@ -65,6 +66,7 @@ func JWTMiddleware() gin.HandlerFunc {
 		c.Set("user_id", claims.ID)
 		c.Set("email", claims.Email)
 		c.Set("role", claims.Role)
+		c.Set("consumer_id", claims.ConsumerID)
 
 		c.Next()
 	}

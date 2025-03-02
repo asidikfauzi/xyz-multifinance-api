@@ -80,10 +80,16 @@ func (a *authService) Login(loginInput dto.LoginInput) (res dto.LoginResponse, c
 		return res, http.StatusUnauthorized, constant.UsernameOrPasswordInvalid
 	}
 
+	var consumerID uuid.UUID
+	if len(userData.Consumer) > 0 {
+		consumerID = userData.Consumer[0].ID
+	}
+
 	jwtClaim := middleware.JwtClaim{
-		ID:    userData.ID,
-		Email: userData.Email,
-		Role:  constant.Roles(userData.Role.Name),
+		ID:         userData.ID,
+		Email:      userData.Email,
+		Role:       constant.Roles(userData.Role.Name),
+		ConsumerID: consumerID,
 	}
 
 	token, err := getToken(jwtClaim)
@@ -121,9 +127,10 @@ func getToken(data middleware.JwtClaim) (token string, err error) {
 	expTime := time.Now().Add(expiredDuration)
 
 	claims := &middleware.JwtClaim{
-		ID:    data.ID,
-		Email: data.Email,
-		Role:  data.Role,
+		ID:         data.ID,
+		Email:      data.Email,
+		Role:       data.Role,
+		ConsumerID: data.ConsumerID,
 		RegisteredClaims: jwt.RegisteredClaims{
 			Issuer:    config.Env("JWT_ISSUER_KEY"),
 			ExpiresAt: jwt.NewNumericDate(expTime),
