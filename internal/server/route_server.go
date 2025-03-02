@@ -20,6 +20,7 @@ func InitializedServer() *Server {
 	r := gin.Default()
 
 	r.Use(middleware.CORS())
+	r.Use(middleware.ApiKeyMiddleware())
 
 	api := r.Group("/api")
 	v1 := api.Group("/v1")

@@ -10,6 +10,8 @@ var (
 	InvalidJsonPayload     = errors.New("invalid request payload")
 	InvalidQueryParameters = errors.New("invalid query parameters")
 	FailedToLoadTimeZone   = errors.New("failed to load timezone")
+	APIKeyIsMissing        = errors.New("api key is missing")
+	InvalidApiKey          = errors.New("invalid api key")
 
 	InvalidHeaderFormat             = errors.New("invalid header format")
 	MalformedToken                  = errors.New("malformed token")
