@@ -9,6 +9,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/limit"
 	"errors"
 	"github.com/google/uuid"
+	"math"
 	"net/http"
 )
 
@@ -50,11 +51,9 @@ func (c *limitService) ApprovalConsumer(id uuid.UUID, input dto.ApprovalLimitInp
 		return res, http.StatusOK, nil
 	}
 
-	consumerData.RejectionReason = ""
-
 	limitData := model.Limits{
 		ID:             uuid.New(),
-		LimitAvailable: input.LimitAvailable,
+		LimitAvailable: math.Round(input.LimitAvailable*100) / 100,
 		ConsumerID:     consumerData.ID,
 		CreatedBy:      input.CreatedBy,
 	}

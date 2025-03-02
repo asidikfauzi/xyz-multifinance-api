@@ -8,6 +8,7 @@ import (
 func RegisterRoutes(v1 *gin.RouterGroup, limitController *LimitsController) {
 	limitGroup := v1.Group("/limit")
 	limitGroup.Use(middleware.JWTMiddleware())
+	limitGroup.Use(middleware.LoggingMiddleware())
 	{
 		limitGroup.PATCH("/approval/:id", limitController.ApprovalConsumer)
 	}

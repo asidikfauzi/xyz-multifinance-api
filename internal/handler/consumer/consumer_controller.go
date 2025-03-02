@@ -82,12 +82,6 @@ func (cc *ConsumersController) FindById(c *gin.Context) {
 }
 
 func (cc *ConsumersController) Create(c *gin.Context) {
-	userID, exists := c.Get("user_id")
-	if !exists {
-		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
-		return
-	}
-
 	role, exists := c.Get("role")
 	if !exists {
 		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
@@ -105,6 +99,12 @@ func (cc *ConsumersController) Create(c *gin.Context) {
 		return
 	}
 
+	userID, exists := c.Get("user_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
 	req.UserID = userID.(uuid.UUID)
 
 	validate := utils.FormatValidationError(req)
@@ -119,7 +119,7 @@ func (cc *ConsumersController) Create(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, 200, "successfully created consumer", data)
+	response.Success(c, code, "successfully created consumer", data)
 }
 
 func (cc *ConsumersController) Update(c *gin.Context) {
@@ -159,5 +159,5 @@ func (cc *ConsumersController) Update(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, 200, "successfully updated consumer", data)
+	response.Success(c, code, "successfully updated consumer", data)
 }

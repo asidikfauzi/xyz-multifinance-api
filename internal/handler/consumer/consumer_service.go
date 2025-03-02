@@ -10,6 +10,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/consumer"
 	"errors"
 	"github.com/google/uuid"
+	"math"
 	"net/http"
 )
 
@@ -141,7 +142,7 @@ func (c *consumerService) Create(input dto.CreateConsumerInput) (res dto.Consume
 		Phone:        newConsumer.Phone,
 		PlaceOfBirth: newConsumer.PlaceOfBirth,
 		DateOfBirth:  newConsumer.DateOfBirth,
-		Salary:       newConsumer.Salary,
+		Salary:       math.Round(newConsumer.Salary*100) / 100,
 		KTPImage:     newConsumer.KTPImage,
 		SelfieImage:  newConsumer.SelfieImage,
 		CreatedAt:    utils.FormatTime(newConsumer.CreatedAt),
@@ -174,7 +175,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		Phone:        input.Phone,
 		PlaceOfBirth: input.PlaceOfBirth,
 		DateOfBirth:  input.DateOfBirth,
-		Salary:       input.Salary,
+		Salary:       math.Round(input.Salary*100) / 100,
 		KTPImage:     input.KTPImage,
 		SelfieImage:  input.SelfieImage,
 	}

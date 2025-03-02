@@ -65,5 +65,5 @@ func (cc *LimitsController) ApprovalConsumer(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, 200, "successfully approval limit", data)
+	response.Success(c, code, "successfully approval limit", data)
 }
