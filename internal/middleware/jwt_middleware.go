@@ -5,6 +5,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/response"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
@@ -15,7 +16,7 @@ import (
 type JwtClaim struct {
 	ID    uuid.UUID
 	Email string
-	Role  string
+	Role  constant.Roles
 	jwt.RegisteredClaims
 }
 
@@ -58,6 +59,8 @@ func JWTMiddleware() gin.HandlerFunc {
 			c.Abort()
 			return
 		}
+
+		fmt.Println(claims)
 
 		c.Set("user_id", claims.ID)
 		c.Set("email", claims.Email)

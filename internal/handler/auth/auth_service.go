@@ -80,7 +80,13 @@ func (a *authService) Login(loginInput dto.LoginInput) (res dto.LoginResponse, c
 		return res, http.StatusUnauthorized, constant.UsernameOrPasswordInvalid
 	}
 
-	token, err := getToken(loginInput.Email)
+	jwtClaim := middleware.JwtClaim{
+		ID:    userData.ID,
+		Email: userData.Email,
+		Role:  constant.Roles(userData.Role.Name),
+	}
+
+	token, err := getToken(jwtClaim)
 	if err != nil {
 		return res, http.StatusUnauthorized, err
 	}
@@ -103,7 +109,7 @@ func (a *authService) Login(loginInput dto.LoginInput) (res dto.LoginResponse, c
 	return res, http.StatusOK, nil
 }
 
-func getToken(email string) (token string, err error) {
+func getToken(data middleware.JwtClaim) (token string, err error) {
 	jwtKey := []byte(config.Env("JWT_SECRET_KEY"))
 
 	expiredDurationStr := config.Env("JWT_EXPIRED_DURATION")
@@ -115,7 +121,9 @@ func getToken(email string) (token string, err error) {
 	expTime := time.Now().Add(expiredDuration)
 
 	claims := &middleware.JwtClaim{
-		Email: email,
+		ID:    data.ID,
+		Email: data.Email,
+		Role:  data.Role,
 		RegisteredClaims: jwt.RegisteredClaims{
 			Issuer:    config.Env("JWT_ISSUER_KEY"),
 			ExpiresAt: jwt.NewNumericDate(expTime),

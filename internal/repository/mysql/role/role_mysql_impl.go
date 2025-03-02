@@ -21,7 +21,7 @@ func NewRolesMySQL(db *gorm.DB) RolesMySQL {
 func (r *roleMysql) FindById(id uuid.UUID) (res model.Roles, err error) {
 	err = r.DB.Where("id = ?", id).First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return res, constant.UserNotFound
+		return res, constant.RoleNotFound
 	}
 
 	return res, err
