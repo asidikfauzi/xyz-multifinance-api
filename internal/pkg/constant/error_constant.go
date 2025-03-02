@@ -30,4 +30,7 @@ var (
 	ConsumerNotFound          = errors.New("consumer not found")
 	NIKConsumerAlreadyExists  = errors.New("nik consumer already exists")
 	ConsumerHasBeenGivenLimit = errors.New("this consumer has been given a limit")
+	ConsumerHasNoLimit        = errors.New("this consumer has no limit")
+
+	InsufficientLimit = errors.New("insufficient limit: transaction amount exceeds available limit")
 )

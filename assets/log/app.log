@@ -1,0 +1,91 @@
+2025/03/02 20:42:34 [POST] /api/v1/transaction ::1 422 1.928125ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"customer_id":["customer i d cannot be empty"]}}
+2025/03/02 20:42:43 [POST] /api/v1/transaction ::1 422 207.625µs
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"customer_id":["customer i d cannot be empty"]}}
+2025/03/02 20:44:59 [POST] /api/v1/transaction ::1 422 5.499125ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"customer_id":["customer i d cannot be empty"]}}
+2025/03/02 20:45:08 [POST] /api/v1/transaction ::1 404 64.341708ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/02 20:45:34 [POST] /api/v1/transaction ::1 422 228.834µs
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"customer_id":["customer i d cannot be empty"]}}
+2025/03/02 20:47:04 [POST] /api/v1/transaction ::1 422 1.846917ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"customer_id":["customer i d cannot be empty"]}}
+2025/03/02 20:47:53 [POST] /api/v1/transaction ::1 422 292.167µs
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"consumer_id":["consumer i d cannot be empty"]}}
+2025/03/02 20:51:42 [POST] /api/v1/transaction ::1 422 485.625µs
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"consumer_id":["consumer i d cannot be empty"]}}
+2025/03/02 20:52:32 [POST] /api/v1/transaction ::1 403 11.987584ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/02 20:53:41 [POST] /api/v1/transaction ::1 403 12.576417ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/02 20:53:43 [POST] /api/v1/transaction ::1 500 31.480625ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":500,"message":"Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`xyz_multifinance`.`transactions`, CONSTRAINT `fk_consumers_transaction` FOREIGN KEY (`consumer_id`) REFERENCES `consumers` (`id`))"}
+2025/03/02 20:57:29 [POST] /api/v1/transaction ::1 200 55.76275ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":200,"message":"transaction successfully","data":{"id":"4668e9eb-0c86-4be2-8b48-21e6f383f9be","contract_number":"CN-20250302-LSPUVH","otr":1000000,"tenor":12,"admin_fee":5000,"installment_amt":91666.66666666667,"amount_interest":100000,"asset_name":"Airpods 2","consumer":{"id":"09658616-76a3-4203-a02c-a1cd19988f63","name":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":""},"limit":{"id":"b6321180-c53b-4093-ba4c-874d2e08d096","limit_available":3899990},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/02 21:23:26 [POST] /api/v1/transaction ::1 201 28.629959ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"7d592ce4-fd24-4b1d-baca-e79e00a4616e","contract_number":"CN-20250302-OCH804","otr":1000000,"tenor":12,"admin_fee":5000,"installment_amt":91666.67,"amount_interest":100000,"asset_name":"Airpods 2","consumer":{"id":"09658616-76a3-4203-a02c-a1cd19988f63","name":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":""},"limit":{"id":"b6321180-c53b-4093-ba4c-874d2e08d096","limit_available":2799980},"created_at":"0001-01-01T00:00:00Z"}}

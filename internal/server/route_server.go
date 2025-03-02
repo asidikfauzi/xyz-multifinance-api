@@ -4,6 +4,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/auth"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/limit"
+	"asidikfauzi/xyz-multifinance-api/internal/handler/transaction"
 	"asidikfauzi/xyz-multifinance-api/internal/injector"
 	"fmt"
 	"github.com/gin-gonic/gin"
@@ -32,6 +33,9 @@ func InitializedServer() *Server {
 
 	limitModule := injector.InitializedLimitModule()
 	limit.RegisterRoutes(v1, limitModule)
+
+	transactionModule := injector.InitializedTransactionModule()
+	transaction.RegisterRoutes(v1, transactionModule)
 
 	return &Server{Engine: r}
 }
