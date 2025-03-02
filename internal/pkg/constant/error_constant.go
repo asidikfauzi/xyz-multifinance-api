@@ -27,6 +27,7 @@ var (
 	UsernameOrPasswordInvalid = errors.New("username or password invalid")
 	UserNotFound              = errors.New("user not found")
 
-	ConsumerNotFound         = errors.New("consumer not found")
-	NIKConsumerAlreadyExists = errors.New("nik consumer already exists")
+	ConsumerNotFound          = errors.New("consumer not found")
+	NIKConsumerAlreadyExists  = errors.New("nik consumer already exists")
+	ConsumerHasBeenGivenLimit = errors.New("this consumer has been given a limit")
 )
