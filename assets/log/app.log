@@ -655,3 +655,195 @@ Request: {
     "password": "admin123"
 }
 Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56,"created_at":"02-03-2025 23:02:23","updated_at":"02-03-2025 23:53:54"}}}
+2025/03/03 02:07:11 [POST] /api/v1/payment ::1 500 26.817ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":500,"message":"Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`xyz_multifinance`.`payments`, CONSTRAINT `fk_transactions_payments` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`))"}
+2025/03/03 02:11:42 [POST] /api/v1/payment ::1 500 110.210542ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":500,"message":"Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`xyz_multifinance`.`payments`, CONSTRAINT `fk_transactions_payments` FOREIGN KEY (`transaction_id`) REFERENCES `transactions` (`id`))"}
+2025/03/03 02:16:28 [POST] /api/v1/payment ::1 201 234.3905ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"b1ef8685-9021-45d6-adc7-663e6149b55b","date":"2025-03-03T02:16:28.143353+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:16:49 [POST] /api/v1/payment ::1 201 22.31175ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7ba16066-4981-4dd1-a197-569a955ca57f","date":"2025-03-03T02:16:49.196062+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:24 [POST] /api/v1/payment ::1 403 21.893125ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/03 02:19:42 [POST] /api/v1/payment ::1 201 22.1115ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"c15ddb1e-8b38-4d91-a44b-8f1dbee1dca9","date":"2025-03-03T02:19:42.316976+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:43 [POST] /api/v1/payment ::1 201 4.044291ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"c5345f0b-acbb-4ae7-85d9-d2ab80ca0884","date":"2025-03-03T02:19:43.458625+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:44 [POST] /api/v1/payment ::1 201 5.145209ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7560435e-a3d9-419d-8199-6ce2e881d112","date":"2025-03-03T02:19:44.116518+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:44 [POST] /api/v1/payment ::1 201 5.306958ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"cdfdcc85-c44d-4964-b275-64bd97726e49","date":"2025-03-03T02:19:44.680159+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:45 [POST] /api/v1/payment ::1 201 5.490625ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"020cadcd-d663-461b-a767-f6ff20c5eadf","date":"2025-03-03T02:19:45.21988+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:45 [POST] /api/v1/payment ::1 201 5.280792ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"9d2135a0-05df-44fe-a4df-f57a5d7afc9b","date":"2025-03-03T02:19:45.733559+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:46 [POST] /api/v1/payment ::1 201 3.6795ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"af2c2e73-9179-46bb-9ebd-f5e310d16301","date":"2025-03-03T02:19:46.189665+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:46 [POST] /api/v1/payment ::1 201 4.53725ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"609f8ab9-52ab-4ca3-b7e2-4cc1f5bc21fb","date":"2025-03-03T02:19:46.626551+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:47 [POST] /api/v1/payment ::1 201 4.885084ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"e24f2a14-274d-4586-b7f2-79934705f17f","date":"2025-03-03T02:19:47.058047+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:47 [POST] /api/v1/payment ::1 201 4.6415ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"fa0b02f6-f118-4c1b-827b-967cadc57797","date":"2025-03-03T02:19:47.490323+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:48 [POST] /api/v1/payment ::1 201 16.200875ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"71d15a7e-f796-480e-8db4-53ad45e75da3","date":"2025-03-03T02:19:48.573113+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:49 [POST] /api/v1/payment ::1 201 3.440375ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"8ac08bb1-8013-4c38-9d7a-00624c53da86","date":"2025-03-03T02:19:49.137183+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:49 [POST] /api/v1/payment ::1 201 4.379375ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"dcda65ad-d81b-491e-91af-df599997e136","date":"2025-03-03T02:19:49.613385+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:50 [POST] /api/v1/payment ::1 201 3.189708ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2d47a196-1430-47ce-aca0-77554015d09a","date":"2025-03-03T02:19:50.084386+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:51 [POST] /api/v1/payment ::1 201 4.507875ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"a0ef68a1-944d-4635-8c82-0d7c6e9b3d04","date":"2025-03-03T02:19:51.185731+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:19:51 [POST] /api/v1/payment ::1 201 4.057583ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"79879450-c72d-4556-9cf1-740be9e41cb1","date":"2025-03-03T02:19:51.862753+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:20:44 [POST] /api/v1/payment ::1 201 63.415667ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2cf5ce84-f9aa-402a-b29d-a4182fac4dab","date":"2025-03-03T02:20:44.465733+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:18 [POST] /api/v1/payment ::1 201 94.914042ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"fbfd33c1-26f8-4e1b-9f34-a304d01ec75a","date":"2025-03-03T02:21:18.485406+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:42 [POST] /api/v1/payment ::1 201 59.942875ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"c028cd5f-6480-42bd-81d6-b92c4ed891b9","date":"2025-03-03T02:21:42.419353+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:43 [POST] /api/v1/payment ::1 201 5.026125ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"bba48e6f-c1b9-45b4-a67f-cbf0eb6d0813","date":"2025-03-03T02:21:43.298817+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:44 [POST] /api/v1/payment ::1 201 4.34625ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"0cc683d7-bfb9-4e2b-a407-130bcaa7662a","date":"2025-03-03T02:21:44.000921+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:44 [POST] /api/v1/payment ::1 201 4.698666ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ca4cebc7-57d4-4141-a545-d3bb57adab8a","date":"2025-03-03T02:21:44.744421+07:00","amount_paid":351663.37,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/03 02:21:45 [POST] /api/v1/payment ::1 409 2.23225ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/03 02:21:53 [POST] /api/v1/payment ::1 409 2.603625ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/03 02:21:53 [POST] /api/v1/payment ::1 409 2.500167ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/03 02:21:54 [POST] /api/v1/payment ::1 409 2.371708ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/03 02:21:54 [POST] /api/v1/payment ::1 409 2.154833ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":409,"message":"payment has already been completed"}

@@ -7,6 +7,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/payment"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/transaction"
 	"asidikfauzi/xyz-multifinance-api/internal/injector"
+	"asidikfauzi/xyz-multifinance-api/internal/middleware"
 	"fmt"
 	"github.com/gin-gonic/gin"
 )
@@ -17,6 +18,8 @@ type Server struct {
 
 func InitializedServer() *Server {
 	r := gin.Default()
+
+	r.Use(middleware.CORS())
 
 	api := r.Group("/api")
 	v1 := api.Group("/v1")

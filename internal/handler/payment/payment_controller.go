@@ -6,6 +6,7 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/response"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/utils"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"net/http"
 )
 
@@ -36,6 +37,21 @@ func (cc *PaymentsController) Create(c *gin.Context) {
 		response.Error(c, http.StatusBadRequest, constant.InvalidJsonPayload.Error(), err.Error())
 		return
 	}
+
+	userId, exists := c.Get("user_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	consumerId, exists := c.Get("consumer_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	req.ConsumerId = consumerId.(uuid.UUID)
+	req.CreatedBy = userId.(uuid.UUID)
 
 	validate := utils.FormatValidationError(req)
 	if len(validate) > 0 {
