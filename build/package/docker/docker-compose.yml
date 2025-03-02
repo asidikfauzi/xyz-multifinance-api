@@ -1,0 +1,41 @@
+services:
+  app:
+    image: app:latest
+    container_name: xyz-multifinance-api
+    build:
+      context: ../../..
+      dockerfile: build/package/docker/Dockerfile
+    ports:
+      - "${APP_PORT}:8080"
+    volumes:
+      - ./log:/log
+    depends_on:
+      mysql:
+        condition: service_healthy
+    restart: on-failure
+    env_file:
+      - ../../../.env
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql-multifinance
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ../mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    env_file:
+      - ../../../.env
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "$MYSQL_USER", "-p $MYSQL_PASSWORD" ]
+      interval: 5s
+      retries: 10
+      timeout: 5s
+
+volumes:
+  mysql_data:

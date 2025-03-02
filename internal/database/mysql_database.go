@@ -21,8 +21,8 @@ func InitDatabase() *gorm.DB {
 	dbLoc := dbConfig.Locale
 
 	initDSN := fmt.Sprintf(
-		"%s:%s@tcp(%s:%s)/?charset=%s&parseTime=%s&loc=%s",
-		dbUser, dbPass, dbHost, dbPort, dbCharset, dbParseTime, dbLoc,
+		"%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=%s&loc=%s",
+		dbUser, dbPass, dbHost, dbPort, dbName, dbCharset, dbParseTime, dbLoc,
 	)
 
 	db, err := gorm.Open(mysql.Open(initDSN), &gorm.Config{})
