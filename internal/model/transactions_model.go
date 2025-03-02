@@ -10,6 +10,7 @@ type Transactions struct {
 	ID             uuid.UUID      `gorm:"type:char(36);primaryKey" json:"id"`
 	ContractNumber string         `gorm:"type:varchar(45);unique;not null" json:"contract_number"`
 	OTR            float64        `gorm:"type:double;not null" json:"otr"`
+	Tenor          int            `gorm:"type:int;not null" json:"tenor"`
 	AdminFee       float64        `gorm:"type:double;not null" json:"admin_fee"`
 	InstallmentAmt float64        `gorm:"type:double;not null" json:"installment_amt"`
 	AmountInterest float64        `gorm:"type:double;not null" json:"amount_interest"`

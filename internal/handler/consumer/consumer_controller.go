@@ -59,9 +59,15 @@ func (cc *ConsumersController) FindById(c *gin.Context) {
 		return
 	}
 
+	consumerID, exists := c.Get("consumer_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
 	id := c.Param("id")
 	idParse, err := uuid.Parse(id)
-	if err != nil {
+	if err != nil || (role == constant.USER && consumerID.(uuid.UUID) != idParse) {
 		response.Error(c, http.StatusNotFound, constant.ConsumerNotFound.Error(), nil)
 		return
 	}

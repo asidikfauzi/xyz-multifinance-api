@@ -99,7 +99,6 @@ func (c *consumerService) FindById(id uuid.UUID) (res dto.ConsumerResponse, code
 	if len(consumerData.Limits) > 0 {
 		res.Limit = &dto2.LimitResponse{
 			ID:             consumerData.Limits[0].ID,
-			Tenor:          consumerData.Limits[0].Tenor,
 			LimitAvailable: consumerData.Limits[0].LimitAvailable,
 			CreatedAt:      utils.FormatTime(consumerData.Limits[0].CreatedAt),
 			UpdatedAt:      utils.FormatTime(consumerData.Limits[0].UpdatedAt),

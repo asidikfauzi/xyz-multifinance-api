@@ -8,7 +8,6 @@ import (
 
 type Limits struct {
 	ID             uuid.UUID      `gorm:"type:char(36);primaryKey" json:"id"`
-	Tenor          int            `gorm:"type:int;not null" json:"tenor"`
 	LimitAvailable float64        `gorm:"type:double;not null" json:"limit_available"`
 	CreatedAt      time.Time      `gorm:"type:timestamp;default:CURRENT_TIMESTAMP" json:"created_at"`
 	CreatedBy      uuid.UUID      `gorm:"type:char(36);not null" json:"created_by"`

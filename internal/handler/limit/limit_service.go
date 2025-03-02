@@ -54,7 +54,6 @@ func (c *limitService) ApprovalConsumer(id uuid.UUID, input dto.ApprovalLimitInp
 
 	limitData := model.Limits{
 		ID:             uuid.New(),
-		Tenor:          input.Tenor,
 		LimitAvailable: input.LimitAvailable,
 		ConsumerID:     consumerData.ID,
 		CreatedBy:      input.CreatedBy,
@@ -67,7 +66,6 @@ func (c *limitService) ApprovalConsumer(id uuid.UUID, input dto.ApprovalLimitInp
 
 	res = dto.LimitResponse{
 		ID:             newLimit.ID,
-		Tenor:          newLimit.Tenor,
 		LimitAvailable: newLimit.LimitAvailable,
 		CreatedAt:      utils.FormatTime(newLimit.CreatedAt),
 	}
