@@ -10,7 +10,9 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/database"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/auth"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer"
+	"asidikfauzi/xyz-multifinance-api/internal/handler/limit"
 	consumer2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/consumer"
+	limit2 "asidikfauzi/xyz-multifinance-api/internal/repository/mysql/limit"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/role"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/user"
 )
@@ -34,4 +36,15 @@ func InitializedConsumerModule() *consumer.ConsumersController {
 	consumersService := consumer.NewConsumersService(consumersMySQL)
 	consumersController := consumer.NewConsumersController(consumersService)
 	return consumersController
+}
+
+// Injectors from limit_wire.go:
+
+func InitializedLimitModule() *limit.LimitsController {
+	db := database.InitDatabase()
+	limitsMySQL := limit2.NewLimitsMySQL(db)
+	consumersMySQL := consumer2.NewConsumersMySQL(db)
+	limitsService := limit.NewLimitsService(limitsMySQL, consumersMySQL)
+	limitsController := limit.NewLimitsController(limitsService)
+	return limitsController
 }
