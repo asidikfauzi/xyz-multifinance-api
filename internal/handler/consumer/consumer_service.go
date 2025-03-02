@@ -196,7 +196,6 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		Salary:       editConsumer.Salary,
 		KTPImage:     editConsumer.KTPImage,
 		SelfieImage:  editConsumer.SelfieImage,
-		CreatedAt:    utils.FormatTime(editConsumer.CreatedAt),
 		UpdatedAt:    utils.FormatTime(editConsumer.UpdatedAt),
 	}
 

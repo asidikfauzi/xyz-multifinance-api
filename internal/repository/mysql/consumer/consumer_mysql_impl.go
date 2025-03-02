@@ -34,7 +34,7 @@ func (c *consumerMysql) FindAll(q dto.QueryConsumer) (res []model.Consumers, tot
 	query := c.DB.Model(&model.Consumers{}).Where("deleted_at IS NULL")
 
 	if q.Search != "" {
-		query = query.Where("nik ILIKE ? OR full_name ILIKE ? OR legal_name ILIKE ? OR place_of_birth ILIKE ?", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%")
+		query = query.Where("nik LIKE ? OR full_name LIKE ? OR legal_name LIKE ? OR place_of_birth LIKE ?", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%")
 	}
 
 	if err = query.Count(&totalItem).Error; err != nil {

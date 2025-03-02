@@ -61,6 +61,8 @@ func validationMessage(fe validator.FieldError) string {
 		return fmt.Sprintf("%s must be one of the following values: %s", fieldName, fe.Param())
 	case "eqfield":
 		return fmt.Sprintf("%s must be the same as %s", fieldName, FormatFieldName(fe.Param()))
+	case "password":
+		return fmt.Sprintf("%s must contain uppercase, lowercase, digit, and special character", fieldName)
 	case "len":
 		return fmt.Sprintf("%s must be exactly %s characters long", fieldName, fe.Param())
 	case "numeric":
