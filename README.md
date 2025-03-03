@@ -136,3 +136,54 @@ Alur kerja aplikasi ini mengikuti tahapan berikut:
 
 Dengan alur ini, sistem memastikan bahwa hanya pengguna yang memenuhi syarat yang bisa mendapatkan layanan kredit dan melakukan transaksi dengan aman.
 
+## Arsitektur Aplikasi
+Arsitektur yang ditampilkan dalam gambar adalah Layered Architecture (Arsitektur Berlapis) untuk aplikasi Golang. Setiap lapisan memiliki tanggung jawab spesifik, yang membantu menjaga modularitas, skalabilitas, dan maintainability aplikasi. Berikut penjelasan tiap layer dari dalam ke luar:
+![img.png](assets/image/arsitektur-aplikasi.png)
+
+1.    **DTO / Model (Lapisan Inti)**
+        - DTO (Data Transfer Object) digunakan untuk pertukaran data antara lapisan aplikasi.
+        - Model merepresentasikan struktur data yang digunakan dalam database atau komunikasi antar layanan.
+
+2.    **Repository Layer**
+        - Berisi logika untuk berinteraksi dengan database.
+        - Menggunakan ORM seperti gorm atau SQL native dengan database/sql atau sqlx.
+        - Contoh: fungsi untuk menyimpan, mengambil, memperbarui, dan menghapus data dari MySQL.
+
+3.    **Service Layer**
+        - Menyimpan logika bisnis utama.
+        - Menghubungkan antara Repository dan Controller.
+        - Menggunakan dependensi injection agar lebih fleksibel.
+
+4.    **Controller Layer**
+        - Berisi endpoint API yang menangani permintaan HTTP dari klien.
+        - Memvalidasi input dan meneruskan ke Service Layer untuk diproses.
+
+5.    **Route Layer**
+        - Mendefinisikan rute dan menghubungkan endpoint ke Controller.
+        - Contoh framework yang sering digunakan: gin-gonic, echo, atau mux.
+
+6.    **Server Layer**
+        - Berisi konfigurasi server dan pengaturan middleware.
+        - Menginisialisasi aplikasi dan menjalankan server HTTP.
+      
+7.    **Wire (Dependency Injection)**
+        - Menggunakan Google Wire untuk mengelola dependency injection.
+        - Memudahkan pengelolaan dependency antara repository, service, dan controller.
+
+### Aliran Kerja
+1. Client mengirim request ke endpoint API.
+2. Route mengarahkan request ke Controller yang sesuai.
+3. Controller menangani request dan memvalidasi data.
+4. Controller memanggil Service untuk logika bisnis.
+5. Service memanggil Repository untuk mengambil atau menyimpan data ke database.
+6. Repository berinteraksi dengan database MySQL dan mengembalikan hasil.
+7. Service mengembalikan data yang sudah diproses ke Controller.
+8. Controller mengembalikan response ke client.
+
+### Kelebihan Arsitektur Ini
+- ✅ Modular & Terstruktur → Setiap bagian memiliki tanggung jawab sendiri.
+- ✅ Scalable → Mudah dikembangkan dengan fitur baru tanpa merusak yang lama.
+- ✅ Testable → Mudah diuji karena tiap layer bisa diuji secara terpisah.
+- ✅ Dependency Injection (Wire) → Mengurangi ketergantungan langsung antar modul.
+
+Arsitektur ini cocok untuk aplikasi REST API berbasis Golang dengan MySQL dan logging berbasis file. Jika ada tambahan seperti caching atau event-driven processing, bisa ditambahkan ke dalam service atau repository layer.
