@@ -17,6 +17,9 @@ BIN_SEED=seed
 
 DOCKER_FILE=build/package/docker
 
+.PHONY: test
+
+
 all: mod wire build-main run
 build: build-main
 reload: build-main run
@@ -70,3 +73,6 @@ docker-down:
 
 wire:
 	(cd internal/injector && wire)
+
+test:
+	$(GOCMD) test ./... -v
