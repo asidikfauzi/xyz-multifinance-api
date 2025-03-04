@@ -49,7 +49,7 @@ func (s *paymentService) FindAll(q dto.QueryPayment) (res dto.PaymentsResponseWi
 		res.Data = append(res.Data, dto.PaymentResponse{
 			ID:             c.ID,
 			ContractNumber: c.Transaction.ContractNumber,
-			Date:           c.Date,
+			Date:           utils.FormatTime(c.Date),
 			AmountPaid:     c.AmountPaid,
 			Status:         c.Status,
 		})
@@ -113,7 +113,7 @@ func (s *paymentService) Pay(id uuid.UUID, input dto.PaymentInput) (res dto.Paym
 
 	res = dto.PaymentResponse{
 		ID:             newPayment.ID,
-		Date:           newPayment.Date,
+		Date:           utils.FormatTime(newPayment.Date),
 		ContractNumber: transactionData.ContractNumber,
 		AmountPaid:     newPayment.AmountPaid,
 		Status:         newPayment.Status,
