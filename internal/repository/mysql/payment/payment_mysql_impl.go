@@ -18,8 +18,8 @@ func NewPaymentsMySQL(db *gorm.DB) PaymentsMySQL {
 	}
 }
 
-func (r *paymentMysql) CountPaymentsByCustomerID(customerID uuid.UUID) (count int64, err error) {
-	err = r.DB.Table("payments").
+func (p *paymentMysql) CountPaymentsByConsumerID(customerID uuid.UUID) (count int64, err error) {
+	err = p.DB.Table("payments").
 		Select("COUNT(payments.id)").
 		Joins("JOIN transactions ON transactions.id = payments.transaction_id").
 		Where("transactions.consumer_id = ? AND payments.deleted_at IS NULL", customerID).
@@ -32,11 +32,28 @@ func (r *paymentMysql) CountPaymentsByCustomerID(customerID uuid.UUID) (count in
 	return count, err
 }
 
-func (r *paymentMysql) Create(input *model.Payments) (res model.Payments, err error) {
-	err = r.DB.Create(input).Error
-	if err != nil {
+func (p *paymentMysql) Create(payment *model.Payments, limit *model.Limits) (res model.Payments, err error) {
+	tx := p.DB.Begin()
+
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+		} else if err != nil {
+			tx.Rollback()
+		} else {
+			tx.Commit()
+		}
+	}()
+
+	if err := tx.Create(payment).Error; err != nil {
 		return res, err
 	}
 
-	return *input, nil
+	if err := tx.Model(&model.Limits{}).
+		Where("id = ?", limit.ID).
+		Update("limit_available", limit.LimitAvailable).Error; err != nil {
+		return res, err
+	}
+
+	return *payment, nil
 }

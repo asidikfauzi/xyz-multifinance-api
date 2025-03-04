@@ -41,7 +41,7 @@ func (r *paymentService) Create(input dto.PaymentInput) (res dto.PaymentResponse
 		return res, http.StatusBadRequest, constant.AmountPaidMustBeEqual
 	}
 
-	countPayment, err := r.paymentMySQL.CountPaymentsByCustomerID(transactionData.ConsumerID)
+	countPayment, err := r.paymentMySQL.CountPaymentsByConsumerID(transactionData.ConsumerID)
 	if err != nil {
 		if errors.Is(err, constant.CountPaymentNotFound) {
 			return res, http.StatusNotFound, constant.CountPaymentNotFound
@@ -62,7 +62,14 @@ func (r *paymentService) Create(input dto.PaymentInput) (res dto.PaymentResponse
 		CreatedBy:     input.CreatedBy,
 	}
 
-	newPayment, err := r.paymentMySQL.Create(&paymentData)
+	updateLimit := transactionData.Consumer.Limits[0].LimitAvailable + paymentData.AmountPaid
+
+	limitsData := model.Limits{
+		ID:             transactionData.Consumer.Limits[0].ID,
+		LimitAvailable: updateLimit,
+	}
+
+	newPayment, err := r.paymentMySQL.Create(&paymentData, &limitsData)
 	if err != nil {
 		return res, http.StatusInternalServerError, err
 	}

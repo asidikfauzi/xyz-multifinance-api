@@ -889,3 +889,316 @@ Request: {
     "amount_paid": 351663.37
 }
 Response: {"code":404,"message":"contract number not found"}
+2025/03/04 11:46:34 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false 192.168.65.1 403 161µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/04 11:46:38 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 404 123.917µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 11:47:02 [GET] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 200 32.071583ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"03-03-2025 05:58:07","updated_at":"03-03-2025 05:58:07"}}
+2025/03/04 11:47:46 [PUT] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 422 1.36075ms
+Request: {
+    "nik" : "",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":422,"message":"unprocessable entity","details":{"nik":["nik cannot be empty"]}}
+2025/03/04 11:47:58 [PUT] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 200 32.817791ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef","email":"user@example.com","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"04-03-2025 18:47:59"}}
+2025/03/04 11:48:05 [GET] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 200 4.286667ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef","email":"user@example.com","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"03-03-2025 05:58:07","updated_at":"04-03-2025 18:47:59"}}
+2025/03/04 11:48:25 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 403 216.209µs
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/04 11:48:47 [PATCH] /api/v1/limit/approval/8ffb36d1-234b-4adf-a213-fb52699fb581 192.168.65.1 404 19.94075ms
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 11:48:52 [PATCH] /api/v1/limit/approval/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 200 17.275083ms
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 50000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"e4b871b6-05e9-405f-a72c-2c1b7f720fd9","limit_available":50000000,"created_at":"01-01-0001 07:07:12"}}
+2025/03/04 14:11:15 [GET] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 404 68.917µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 14:11:32 [GET] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 19.009292ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"04-03-2025 19:31:40","updated_at":"04-03-2025 19:31:40"}}
+2025/03/04 14:11:42 [GET] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 22.711375ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"user@example.com","nik":"","full_name":"","legal_name":"","phone":"","place_of_birth":"","date_of_birth":"","salary":0,"ktp_image":"","selfie_image":"","is_verified":false,"rejection_reason":"","created_at":"04-03-2025 19:31:40","updated_at":"04-03-2025 19:31:40"}}
+2025/03/04 14:12:05 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC&paginate=false 192.168.65.1 200 14.899208ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/04 14:12:13 [GET] /api/v1/consumer?page=1&limit=1&search=&order_by=created_at&direction=ASC 192.168.65.1 200 12.377708ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":1,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/04 14:12:20 [GET] /api/v1/consumer?page=1&limit=10&search=&order_by=created_at&direction=ASC 192.168.65.1 200 4.859083ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":0,"item_count":0,"items_per_page":10,"total_pages":0,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/04 14:12:49 [PUT] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 404 24.291875ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 14:12:50 [PUT] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 404 2.851459ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 14:13:02 [PUT] /api/v1/consumer/f2dcbe46-7157-4b8d-b2f9-3e528b0f62ef 192.168.65.1 404 18.025ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/04 14:13:14 [PUT] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 73.321042ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"user@example.com","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"04-03-2025 21:13:14"}}
+2025/03/04 14:13:18 [GET] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 2.778333ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"user@example.com","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"04-03-2025 19:31:40","updated_at":"04-03-2025 21:13:14"}}
+2025/03/04 14:13:58 [POST] /api/v1/transaction 192.168.65.1 403 30.397625ms
+Request: {
+    "otr": 3999998,
+    "asset_name": "Airpods 2",
+    "tenor": 12
+}
+Response: {"code":403,"message":"this consumer has no limit"}
+2025/03/04 14:14:32 [PATCH] /api/v1/limit/approval/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 30.897833ms
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 20000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"6313dcff-e96f-492d-887d-72f19806a586","limit_available":20000000,"created_at":"01-01-0001 07:07:12"}}
+2025/03/04 14:15:09 [POST] /api/v1/transaction 192.168.65.1 403 18.814041ms
+Request: {
+    "otr": 100000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/04 14:15:20 [POST] /api/v1/transaction 192.168.65.1 201 32.802917ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"a90a1683-f9d6-46ef-b551-22790eddb317","contract_number":"CN-20250304-O9RCNQ","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":879158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":""},"limit":{"id":"6313dcff-e96f-492d-887d-72f19806a586","limit_available":9445093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 14:16:10 [GET] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 192.168.65.1 200 26.448375ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"33b6b4b7-caf6-4393-b24e-2ac08420a2d7","email":"user@example.com","nik":"1234567890123459","full_name":"Ach Sidik Fauzi","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"04-03-2025 19:31:40","updated_at":"04-03-2025 21:14:33","limit":{"id":"6313dcff-e96f-492d-887d-72f19806a586","limit_available":9445093.56,"created_at":"04-03-2025 21:14:32","updated_at":"04-03-2025 21:15:20"}}}
+2025/03/04 21:20:44 [GET] /api/v1/consumer?page=1&limit=10&search=&order_by=created_at&direction=ASC ::1 200 22.787417ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"}],"page":{"total_items":1,"item_count":1,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/04 21:21:26 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 22.837334ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":41775041.56,"created_at":"02-03-2025 23:02:23","updated_at":"02-03-2025 23:53:54"}}}
+2025/03/04 21:22:44 [POST] /api/v1/transaction ::1 201 37.065459ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"aa090410-908e-4f9b-bdec-5b0b8b249622","contract_number":"CN-20250304-NLN209","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":879158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9445093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 21:24:35 [POST] /api/v1/transaction ::1 201 24.720583ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"e07b980a-68aa-4f22-80a2-eb3159cc1605","contract_number":"CN-20250304-J7XFDX","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":879158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9445093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 21:48:32 [POST] /api/v1/transaction ::1 201 33.410917ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"4d27c397-cfd0-4701-aef7-3cd22cdf52f6","contract_number":"CN-20250304-8RWT0L","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":884158.87,"amount_interest":609906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9390093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:07:03 [POST] /api/v1/transaction ::1 201 70.921584ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"a73e10e3-8f19-4a06-b8d3-c05593c7d7cc","contract_number":"CN-20250304-261J9U","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":879575.54,"amount_interest":554906.48,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9445093.52},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:19:00 [POST] /api/v1/transaction ::1 201 28.348209ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+Response: {"code":201,"message":"transaction successfully","data":{"id":"315d6b45-6b56-4f14-98ff-1b322bd92b3d","contract_number":"CN-20250304-T534WU","otr":10000000,"tenor":12,"admin_fee":5000,"installment_amt":879575.54,"amount_interest":554906.48,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9445093.52},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:20:58 [POST] /api/v1/transaction ::1 403 200.095125ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+10554906,48
+10559906,48
+
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/04 22:21:04 [POST] /api/v1/transaction ::1 403 14.698916ms
+Request: {
+    "otr": 90000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+10554906,48
+10559906,48
+
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/04 22:21:06 [POST] /api/v1/transaction ::1 403 12.024625ms
+Request: {
+    "otr": 80000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+10554906,48
+10559906,48
+
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/04 22:21:09 [POST] /api/v1/transaction ::1 403 2.499791ms
+Request: {
+    "otr": 70000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+10554906,48
+10559906,48
+
+Response: {"code":403,"message":"insufficient limit: transaction amount exceeds available limit"}
+2025/03/04 22:21:13 [POST] /api/v1/transaction ::1 201 80.090125ms
+Request: {
+    "otr": 7000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+10554906,48
+10559906,48
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"6e8a861f-1b46-475e-acd6-269083b7f888","contract_number":"CN-20250304-9QOU6C","otr":7000000,"tenor":12,"admin_fee":5000,"installment_amt":615827.88,"amount_interest":389934.56,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":2055158.96},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:31:30 [POST] /api/v1/transaction ::1 201 16.385125ms
+Request: {
+    "otr": 7000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"55844087-1075-4aa7-819b-5b6e92679e6a","contract_number":"CN-20250304-86XATK","otr":7000000,"tenor":12,"admin_fee":5000,"installment_amt":620411.21,"amount_interest":444934.52,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":12495065.48},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:34:18 [POST] /api/v1/transaction ::1 201 105.419417ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"516779e1-0155-439a-8db8-62a2c6e7c576","contract_number":"CN-20250304-9IKBDL","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":609906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9390093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:45:33 [POST] /api/v1/transaction ::1 201 88.02025ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"82dda584-44ed-46f8-a88a-e795d904e41a","contract_number":"CN-20250304-1ZK944","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":609906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9390093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/04 22:53:37 [POST] /api/v1/transaction ::1 201 328.4075ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"73234f40-68b8-443f-b9db-1aae34d7d664","contract_number":"CN-20250304-6AU775","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"0001-01-01T00:00:00Z"}}

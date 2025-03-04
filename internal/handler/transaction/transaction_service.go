@@ -40,22 +40,25 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		return res, http.StatusForbidden, constant.ConsumerHasNoLimit
 	}
 
-	// Perhitungan Total Pinjaman & Angsuran
-	r := (float64(constant.Interest) / 100) / 12 // Bunga per bulan
+	r := (float64(constant.Interest) / 100) / 12
 	n := float64(input.Tenor)
-	P := input.OTR // Pokok pinjaman
+	P := input.OTR
 
-	// Rumus annuitas
+	totalAdminFee := constant.AdminFee * n
+
+	//Cicilan
 	installmentRaw := (P * r) / (1 - math.Pow(1+r, -n))
-	installment := math.Round(installmentRaw*100) / 100 // Bulatkan setelah semua perhitungan
+	installment := math.Round(installmentRaw*100) / 100
 
-	// Hitung total pembayaran
-	total := P + (installment * n) + float64(constant.AdminFee)
-
-	// Hitung total bunga setelah installment dibulatkan
+	//Bunga
 	amountInterest := math.Round((installment*n-P)*100) / 100
 
-	// Cek apakah limit cukup sebelum lanjut transaksi
+	// Cicilan + Bunga
+	installment = installment + constant.AdminFee
+
+	// Total
+	total := installment*n + totalAdminFee
+
 	if total > checkConsumer.Limits[0].LimitAvailable {
 		return res, http.StatusForbidden, constant.InsufficientLimit
 	}
@@ -67,7 +70,7 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		ContractNumber: contractNumber,
 		OTR:            math.Round(P*100) / 100,
 		Tenor:          input.Tenor,
-		AdminFee:       constant.AdminFee,
+		AdminFee:       totalAdminFee,
 		InstallmentAmt: installment,
 		AmountInterest: amountInterest,
 		AssetName:      input.AssetName,
