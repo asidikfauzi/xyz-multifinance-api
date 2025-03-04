@@ -27,7 +27,7 @@ func NewTransactionService(tt transaction.TransactionsMySQL, cm consumer.Consume
 	}
 }
 
-func normalizeConsumerQuery(q dto.QueryTransaction) dto.QueryTransaction {
+func normalizeTransactionQuery(q dto.QueryTransaction) dto.QueryTransaction {
 	if q.Page == 0 {
 		q.Page = 1
 	}
@@ -37,8 +37,8 @@ func normalizeConsumerQuery(q dto.QueryTransaction) dto.QueryTransaction {
 	return q
 }
 
-func (s *transactionService) FindAll(q dto.QueryTransaction) (res dto.ConsumersResponseWithPage, code int, err error) {
-	q = normalizeConsumerQuery(q)
+func (s *transactionService) FindAll(q dto.QueryTransaction) (res dto.TransactionsResponseWithPage, code int, err error) {
+	q = normalizeTransactionQuery(q)
 
 	transactionData, totalItems, err := s.transactionMySQL.FindAll(q)
 	if err != nil {

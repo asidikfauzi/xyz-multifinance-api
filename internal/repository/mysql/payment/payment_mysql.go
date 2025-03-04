@@ -1,10 +1,13 @@
 package payment
 
 import (
+	"asidikfauzi/xyz-multifinance-api/internal/handler/payment/dto"
 	"asidikfauzi/xyz-multifinance-api/internal/model"
+	"github.com/google/uuid"
 )
 
 type PaymentsMySQL interface {
-	CountPaymentsByContractNumber(string) (int64, error)
-	Create(*model.Payments, *model.Limits) (model.Payments, error)
+	FindAll(dto.QueryPayment) ([]model.Payments, int64, error)
+	FindById(uuid.UUID) (model.Payments, error)
+	Pay(*model.Payments, *model.Limits) (model.Payments, error)
 }

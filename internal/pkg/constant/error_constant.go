@@ -27,6 +27,6 @@ var (
 	ContractNumberNotFound          = errors.New("contract number not found")
 	InsufficientLimit               = errors.New("insufficient limit: transaction amount exceeds available limit")
 	AmountPaidMustBeEqual           = errors.New("amount paid must be equal to the installment amount")
-	CountPaymentNotFound            = errors.New("count payment not found")
+	PaymentNotFound                 = errors.New("payment not found")
 	PaymentAlreadyComplete          = errors.New("payment has already been completed")
 )

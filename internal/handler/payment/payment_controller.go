@@ -20,7 +20,44 @@ func NewPaymentsController(ps PaymentsService) *PaymentsController {
 	}
 }
 
-func (cc *PaymentsController) Create(c *gin.Context) {
+func (cc *PaymentsController) FindAll(c *gin.Context) {
+	role, exists := c.Get("role")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	if role != constant.ADMIN && role != constant.USER {
+		response.Error(c, http.StatusForbidden, constant.AccessDenied.Error(), nil)
+		return
+	}
+
+	var query dto.QueryPayment
+	if err := c.ShouldBindQuery(&query); err != nil {
+		response.Error(c, http.StatusBadRequest, constant.InvalidQueryParameters.Error(), err.Error())
+		return
+	}
+
+	consumerId, exists := c.Get("consumer_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	if role == constant.USER {
+		query.ConsumerId = consumerId.(uuid.UUID).String()
+	}
+
+	res, code, err := cc.paymentService.FindAll(query)
+	if err != nil {
+		response.Error(c, code, err.Error(), nil)
+		return
+	}
+
+	response.SuccessPaginate(c, code, "successfully get all payments", res.Data, res.Page)
+}
+
+func (cc *PaymentsController) Pay(c *gin.Context) {
 	role, exists := c.Get("role")
 	if !exists {
 		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
@@ -29,6 +66,13 @@ func (cc *PaymentsController) Create(c *gin.Context) {
 
 	if role != constant.USER {
 		response.Error(c, http.StatusForbidden, constant.AccessDenied.Error(), nil)
+		return
+	}
+
+	id := c.Param("id")
+	idParse, err := uuid.Parse(id)
+	if err != nil {
+		response.Error(c, http.StatusNotFound, constant.ConsumerNotFound.Error(), nil)
 		return
 	}
 
@@ -51,7 +95,7 @@ func (cc *PaymentsController) Create(c *gin.Context) {
 	}
 
 	req.ConsumerId = consumerId.(uuid.UUID)
-	req.CreatedBy = userId.(uuid.UUID)
+	req.UpdatedBy = userId.(uuid.UUID)
 
 	validate := utils.FormatValidationError(req)
 	if len(validate) > 0 {
@@ -59,7 +103,7 @@ func (cc *PaymentsController) Create(c *gin.Context) {
 		return
 	}
 
-	data, code, err := cc.paymentService.Create(req)
+	data, code, err := cc.paymentService.Pay(idParse, req)
 	if err != nil {
 		response.Error(c, code, err.Error(), nil)
 		return

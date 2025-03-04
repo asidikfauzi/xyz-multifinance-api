@@ -1,9 +1,12 @@
 package payment
 
 import (
+	"asidikfauzi/xyz-multifinance-api/internal/handler/payment/dto"
 	"asidikfauzi/xyz-multifinance-api/internal/model"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
 	"errors"
+	"fmt"
+	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -17,21 +20,65 @@ func NewPaymentsMySQL(db *gorm.DB) PaymentsMySQL {
 	}
 }
 
-func (p *paymentMysql) CountPaymentsByContractNumber(contractNumber string) (count int64, err error) {
-	err = p.DB.Table("payments").
-		Select("COUNT(payments.id)").
-		Joins("JOIN transactions ON transactions.id = payments.transaction_id").
-		Where("transactions.contract_number = ? AND payments.deleted_at IS NULL", contractNumber).
-		Count(&count).Error
-
+func (p *paymentMysql) FindById(id uuid.UUID) (res model.Payments, err error) {
+	err = p.DB.Where("deleted_at IS NULL AND id = ?", id).First(&res).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		return 0, constant.CountPaymentNotFound
+		return res, constant.PaymentNotFound
 	}
 
-	return count, err
+	return res, err
 }
 
-func (p *paymentMysql) Create(payment *model.Payments, limit *model.Limits) (res model.Payments, err error) {
+func (p *paymentMysql) FindAll(q dto.QueryPayment) (res []model.Payments, totalItem int64, err error) {
+	if q.OrderBy == "" {
+		q.OrderBy = "created_at"
+	}
+
+	if q.Direction != "ASC" && q.Direction != "DESC" {
+		q.Direction = "DESC"
+	}
+
+	offset := (q.Page - 1) * q.Limit
+
+	query := p.DB.Model(&model.Payments{}).
+		Joins("JOIN transactions ON transactions.id = payments.transaction_id").
+		Preload("Transaction").
+		Where("payments.deleted_at IS NULL")
+
+	if q.Search != "" {
+		query = query.Where("transactions.contract_number LIKE ? OR status LIKE ? OR transactions.consumer_id LIKE ?", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%")
+	}
+
+	if q.Status != "" {
+		query = query.Where("status = ?", q.Status)
+	}
+
+	if q.ConsumerId != "" {
+		query = query.Where("transactions.consumer_id = ?", q.ConsumerId)
+	}
+
+	if q.ContractNumber != "" {
+		query = query.Where("transactions.contract_number = ?", q.ContractNumber)
+	}
+
+	if q.Limit > 0 {
+		query = query.Limit(q.Limit)
+	}
+
+	if err = query.Count(&totalItem).Error; err != nil {
+		return nil, 0, err
+	}
+
+	query = query.Offset(offset)
+
+	if err = query.Order(fmt.Sprintf("%s %s", q.OrderBy, q.Direction)).Find(&res).Error; err != nil {
+		return nil, 0, err
+	}
+
+	return res, totalItem, nil
+}
+
+func (p *paymentMysql) Pay(payment *model.Payments, limit *model.Limits) (res model.Payments, err error) {
 	tx := p.DB.Begin()
 
 	defer func() {
@@ -44,7 +91,9 @@ func (p *paymentMysql) Create(payment *model.Payments, limit *model.Limits) (res
 		}
 	}()
 
-	if err := tx.Create(payment).Error; err != nil {
+	if err := tx.Model(&model.Payments{}).
+		Where("id = ?", payment.ID).
+		Updates(payment).Error; err != nil {
 		return res, err
 	}
 

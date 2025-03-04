@@ -54,7 +54,7 @@ func (cc *TransactionsController) FindAll(c *gin.Context) {
 		return
 	}
 
-	response.SuccessPaginate(c, code, "successfully get all consumers", res.Data, res.Page)
+	response.SuccessPaginate(c, code, "successfully get all transactions", res.Data, res.Page)
 }
 
 func (cc *TransactionsController) Transactions(c *gin.Context) {
@@ -106,5 +106,5 @@ func (cc *TransactionsController) Transactions(c *gin.Context) {
 		return
 	}
 
-	response.Success(c, code, "transaction successfully", data)
+	response.Success(c, code, "successful transaction", data)
 }

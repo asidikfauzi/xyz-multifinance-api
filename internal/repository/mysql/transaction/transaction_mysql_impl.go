@@ -6,7 +6,9 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
 	"errors"
 	"fmt"
+	"github.com/google/uuid"
 	"gorm.io/gorm"
+	"time"
 )
 
 type transactionMySQL struct {
@@ -36,16 +38,16 @@ func (t *transactionMySQL) FindAll(q dto.QueryTransaction) (res []model.Transact
 		query = query.Where("contract_number LIKE ? OR asset_name LIKE ? OR consumers.full_name LIKE ? OR consumers.nik LIKE ?", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%", "%"+q.Search+"%")
 	}
 
-	if err = query.Count(&totalItem).Error; err != nil {
-		return nil, 0, err
-	}
-
 	if q.ConsumerId != "" {
 		query = query.Where("consumer_id = ?", q.ConsumerId)
 	}
 
 	if q.Limit > 0 {
 		query = query.Limit(q.Limit)
+	}
+
+	if err = query.Count(&totalItem).Error; err != nil {
+		return nil, 0, err
 	}
 
 	query = query.Offset(offset)
@@ -93,5 +95,32 @@ func (t *transactionMySQL) Transaction(transactions model.Transactions, limits m
 		return res, err
 	}
 
+	if err := t.createPayments(tx, transactions); err != nil {
+		return res, err
+	}
+
 	return transactions, nil
+}
+
+func (t *transactionMySQL) createPayments(tx *gorm.DB, transaction model.Transactions) error {
+	payments := make([]model.Payments, transaction.Tenor)
+	startDate := time.Now().AddDate(0, 1, 0)
+
+	for i := 0; i < transaction.Tenor; i++ {
+		payments[i] = model.Payments{
+			ID:            uuid.New(),
+			Date:          startDate.AddDate(0, i, 0),
+			AmountPaid:    transaction.InstallmentAmt,
+			Status:        string(constant.PENDING),
+			CreatedAt:     time.Now(),
+			CreatedBy:     transaction.CreatedBy,
+			TransactionID: transaction.ID,
+		}
+	}
+
+	if err := tx.Create(&payments).Error; err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -10,6 +10,7 @@ func RegisterRoutes(v1 *gin.RouterGroup, paymentController *PaymentsController) 
 	paymentGroup.Use(middleware.JWTMiddleware())
 	paymentGroup.Use(middleware.LoggingMiddleware())
 	{
-		paymentGroup.POST("", paymentController.Create)
+		paymentGroup.GET("", paymentController.FindAll)
+		paymentGroup.PATCH("/:id", paymentController.Pay)
 	}
 }

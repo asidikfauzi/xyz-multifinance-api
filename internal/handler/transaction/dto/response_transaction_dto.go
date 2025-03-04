@@ -5,7 +5,7 @@ import (
 	"github.com/google/uuid"
 )
 
-type ConsumersResponseWithPage struct {
+type TransactionsResponseWithPage struct {
 	Data []TransactionsResponse      `json:"data"`
 	Page response.PaginationResponse `json:"page"`
 }
