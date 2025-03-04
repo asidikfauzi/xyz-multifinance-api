@@ -43,7 +43,7 @@ func (r *paymentService) Create(input dto.PaymentInput) (res dto.PaymentResponse
 		return res, http.StatusBadRequest, constant.AmountPaidMustBeEqual
 	}
 
-	countPayment, err := r.paymentMySQL.CountPaymentsByConsumerID(transactionData.ConsumerID)
+	countPayment, err := r.paymentMySQL.CountPaymentsByContractNumber(transactionData.ContractNumber)
 	if err != nil {
 		if errors.Is(err, constant.CountPaymentNotFound) {
 			return res, http.StatusNotFound, constant.CountPaymentNotFound

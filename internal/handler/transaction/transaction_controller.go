@@ -20,6 +20,43 @@ func NewTransactionsController(ts TransactionsService) *TransactionsController {
 	}
 }
 
+func (cc *TransactionsController) FindAll(c *gin.Context) {
+	role, exists := c.Get("role")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	if role != constant.ADMIN && role != constant.USER {
+		response.Error(c, http.StatusForbidden, constant.AccessDenied.Error(), nil)
+		return
+	}
+
+	var query dto.QueryTransaction
+	if err := c.ShouldBindQuery(&query); err != nil {
+		response.Error(c, http.StatusBadRequest, constant.InvalidQueryParameters.Error(), err.Error())
+		return
+	}
+
+	consumerId, exists := c.Get("consumer_id")
+	if !exists {
+		response.Error(c, http.StatusUnauthorized, constant.TokenInvalid.Error(), nil)
+		return
+	}
+
+	if role == constant.USER {
+		query.ConsumerId = consumerId.(uuid.UUID).String()
+	}
+
+	res, code, err := cc.transactionService.FindAll(query)
+	if err != nil {
+		response.Error(c, code, err.Error(), nil)
+		return
+	}
+
+	response.SuccessPaginate(c, code, "successfully get all consumers", res.Data, res.Page)
+}
+
 func (cc *TransactionsController) Transactions(c *gin.Context) {
 	role, exists := c.Get("role")
 	if !exists {

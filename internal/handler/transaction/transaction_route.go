@@ -10,6 +10,7 @@ func RegisterRoutes(v1 *gin.RouterGroup, transactionController *TransactionsCont
 	limitGroup.Use(middleware.JWTMiddleware())
 	limitGroup.Use(middleware.LoggingMiddleware())
 	{
+		limitGroup.GET("", transactionController.FindAll)
 		limitGroup.POST("", transactionController.Transactions)
 	}
 }

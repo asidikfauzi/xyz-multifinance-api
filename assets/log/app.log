@@ -1526,3 +1526,469 @@ Request: {
     "amount_paid": 884158.87
 }
 Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:36:31 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 84.207791ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"d8a59967-a6ae-4f20-8f62-92291335163f","nik":"1234567890123459","full_name":"Adelia Risky Santoso","limit_available":0,"contract_number":"CN-20250305-D3JGI4","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","created_at":null}],"page":{"total_items":1,"item_count":1,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:37:17 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 89.583709ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"d8a59967-a6ae-4f20-8f62-92291335163f","nik":"1234567890123459","full_name":"Adelia Risky Santoso","limit_available":0,"contract_number":"CN-20250305-D3JGI4","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR"}],"page":{"total_items":1,"item_count":1,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:38:08 [POST] /api/v1/transaction ::1 201 167.368375ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "Airpods",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"6bf27847-78ed-4484-9a5f-72af53afc868","nik":"1234567890123459","full_name":"Adelia Risky Santoso","limit_available":18885009.32,"contract_number":"CN-20250305-ZPGHFH","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods","created_at":"05-03-2025 01:38:08"}}
+2025/03/05 01:38:11 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 7.539708ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"d8a59967-a6ae-4f20-8f62-92291335163f","nik":"1234567890123459","full_name":"Adelia Risky Santoso","limit_available":0,"contract_number":"CN-20250305-D3JGI4","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR"},{"id":"6bf27847-78ed-4484-9a5f-72af53afc868","nik":"1234567890123459","full_name":"Adelia Risky Santoso","limit_available":0,"contract_number":"CN-20250305-ZPGHFH","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods"}],"page":{"total_items":2,"item_count":2,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:39:16 [PUT] /api/v1/consumer/33b6b4b7-caf6-4393-b24e-2ac08420a2d7 ::1 404 9.335833ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/05 01:39:38 [PUT] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 500 83.731166ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":500,"message":"Error 1062 (23000): Duplicate entry '1234567890123459' for key 'consumers.nix_nik'"}
+2025/03/05 01:41:45 [PUT] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 409 162.052583ms
+Request: {
+    "nik" : "1234567890123459",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":409,"message":"nik consumer already exists"}
+2025/03/05 01:42:02 [PUT] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 66.547375ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Adelia Risky Santoso",
+    "legal_name": "Adelia",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "01-10-2001",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"05-03-2025 01:42:02"}}
+2025/03/05 01:42:06 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 404 111.25µs
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":404,"message":"consumer not found"}
+2025/03/05 01:42:08 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 3.300209ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:42:02"}}
+2025/03/05 01:42:10 [GET] /api/v1/consumer?page=1&limit=10&search=&order_by=created_at&direction=ASC ::1 403 47.083µs
+Request: 
+Response: {"code":403,"message":"access denied"}
+2025/03/05 01:42:28 [GET] /api/v1/consumer?page=1&limit=10&search=&order_by=created_at&direction=ASC ::1 200 17.95725ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":2,"item_count":2,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:43:18 [PUT] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 403 1.133458ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Fauzi",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "06-07-1999",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":403,"message":"access denied"}
+2025/03/05 01:43:30 [PUT] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 36.745416ms
+Request: {
+    "nik" : "1234567890123450",
+    "full_name": "Ach Sidik Fauzi",
+    "legal_name": "Fauzi",
+    "phone": "087890987890",
+    "place_of_birth": "Sumenep",
+    "date_of_birth": "06-07-1999",
+    "salary": 10000000.00,
+    "ktp_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw&s",
+    "selfie_image": "https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg"
+}
+Response: {"code":200,"message":"successfully updated consumer","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","updated_at":"05-03-2025 01:43:30"}}
+2025/03/05 01:43:32 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 4.213708ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:43:30"}}
+2025/03/05 01:43:49 [GET] /api/v1/consumer?page=1&limit=10&search=&order_by=created_at&direction=ASC ::1 200 8.43575ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":""}],"page":{"total_items":2,"item_count":2,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:44:06 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 14.796625ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":false,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:43:30"}}
+2025/03/05 01:44:23 [PATCH] /api/v1/limit/approval/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 28.522125ms
+Request: {
+    "is_verified" : true,
+    "rejection_reason": "Data diri anda belum lengkap",
+    "limit_available": 30000000
+}
+Response: {"code":200,"message":"successfully approval limit","data":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"01-01-0001 07:07:12"}}
+2025/03/05 01:44:28 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 15.698167ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:44:23"}}}
+2025/03/05 01:44:49 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 18.650208ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":null,"page":{"total_items":2,"item_count":0,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:44:56 [POST] /api/v1/transaction ::1 201 18.524542ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "Airpods",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"1b750b64-bb31-4ac1-9542-77cd58f44986","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":28885009.32,"contract_number":"CN-20250305-7P3ZAA","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods","created_at":"05-03-2025 01:44:56"}}
+2025/03/05 01:45:00 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 5.338667ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"1b750b64-bb31-4ac1-9542-77cd58f44986","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":0,"contract_number":"CN-20250305-7P3ZAA","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods"}],"page":{"total_items":3,"item_count":1,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:45:22 [POST] /api/v1/transaction ::1 201 63.125292ms
+Request: {
+    "otr": 1000000,
+    "asset_name": "BRV-Prestage 2021",
+    "tenor": 24
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"432e10dd-590f-4131-8fda-1d9da63b9f5c","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":27657531,"contract_number":"CN-20250305-48UNBO","otr":1000000,"tenor":24,"admin_fee":120000,"installment_amt":51144.93,"amount_interest":107478.32,"asset_name":"BRV-Prestage 2021","created_at":"05-03-2025 01:45:22"}}
+2025/03/05 01:45:37 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 19.473834ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"1b750b64-bb31-4ac1-9542-77cd58f44986","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":0,"contract_number":"CN-20250305-7P3ZAA","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods"},{"id":"432e10dd-590f-4131-8fda-1d9da63b9f5c","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":0,"contract_number":"CN-20250305-48UNBO","otr":1000000,"tenor":24,"admin_fee":120000,"installment_amt":51144.93,"amount_interest":107478.32,"asset_name":"BRV-Prestage 2021"}],"page":{"total_items":4,"item_count":2,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}
+2025/03/05 01:46:11 [POST] /api/v1/payment ::1 400 18.366666ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 884158.87
+}
+Response: {"code":400,"message":"amount paid must be equal to the installment amount"}
+2025/03/05 01:46:24 [POST] /api/v1/payment ::1 201 32.656458ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"29b2d530-e609-4748-ab29-b8d75fdb0efd","date":"2025-03-05T01:46:24.420831+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:24"}}
+2025/03/05 01:46:25 [POST] /api/v1/payment ::1 201 7.212459ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"6b61dfd9-15de-471a-a1f1-5037ce05178a","date":"2025-03-05T01:46:25.166148+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:25"}}
+2025/03/05 01:46:25 [POST] /api/v1/payment ::1 201 7.171625ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"fce29849-fc00-4209-99b5-74bc4df83f6b","date":"2025-03-05T01:46:25.756721+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:25"}}
+2025/03/05 01:46:26 [POST] /api/v1/payment ::1 201 7.983291ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"8dd9865f-e361-4744-851e-2058605ce93a","date":"2025-03-05T01:46:26.261648+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:26"}}
+2025/03/05 01:46:26 [POST] /api/v1/payment ::1 201 8.894583ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"08e6b942-d590-4d10-ad0f-4bcab1fdbe34","date":"2025-03-05T01:46:26.7433+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:26"}}
+2025/03/05 01:46:27 [POST] /api/v1/payment ::1 201 9.914375ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"a12af496-3836-4ee3-b2fd-fbf8bea119da","date":"2025-03-05T01:46:27.158546+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:27"}}
+2025/03/05 01:46:29 [POST] /api/v1/payment ::1 201 14.222375ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"875437af-19db-413a-88f6-d297d344728c","date":"2025-03-05T01:46:29.642387+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:29"}}
+2025/03/05 01:46:30 [POST] /api/v1/payment ::1 201 8.520625ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"d5a14ef6-4b43-4b6e-98b9-3f637d61efa9","date":"2025-03-05T01:46:30.175042+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:30"}}
+2025/03/05 01:46:30 [POST] /api/v1/payment ::1 201 4.535834ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"51167156-fa11-4d67-a26c-f4db4e18d584","date":"2025-03-05T01:46:30.640006+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:30"}}
+2025/03/05 01:46:31 [POST] /api/v1/payment ::1 201 6.796042ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ab9cc2fb-7458-4f49-ab7e-b233b6a777e6","date":"2025-03-05T01:46:31.081443+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:31"}}
+2025/03/05 01:46:31 [POST] /api/v1/payment ::1 201 8.101ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"52f9d0f0-ddaf-4f69-a324-02409756df8b","date":"2025-03-05T01:46:31.512678+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:31"}}
+2025/03/05 01:46:31 [POST] /api/v1/payment ::1 201 7.185459ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ea2b4eaa-37ab-42d7-9db4-d63e837fbf07","date":"2025-03-05T01:46:31.961496+07:00","amount_paid":92915.89,"status":"SUCCESS","created_at":"05-03-2025 01:46:31"}}
+2025/03/05 01:46:32 [POST] /api/v1/payment ::1 409 4.044792ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:46:32 [POST] /api/v1/payment ::1 409 3.902375ms
+Request: {
+    "contract_number": "CN-20250305-7P3ZAA",
+    "amount_paid": 92915.89
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:46:34 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 7.37325ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":28772521.68,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:46:32"}}}
+2025/03/05 01:47:10 [POST] /api/v1/payment ::1 400 271.908125ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 92915.89
+}
+Response: {"code":400,"message":"amount paid must be equal to the installment amount"}
+2025/03/05 01:47:20 [POST] /api/v1/payment ::1 201 15.098917ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"bff2d89a-a679-4f5c-b4cb-d0dce068bc04","date":"2025-03-05T01:47:20.730964+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:20"}}
+2025/03/05 01:47:21 [POST] /api/v1/payment ::1 201 7.609292ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ba7720de-2c40-4b27-a2c7-e9c74610e5a7","date":"2025-03-05T01:47:21.314604+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:21"}}
+2025/03/05 01:47:21 [POST] /api/v1/payment ::1 201 7.775ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2cadc348-74e8-4337-9f4d-e162c11b2fec","date":"2025-03-05T01:47:21.815114+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:21"}}
+2025/03/05 01:47:22 [POST] /api/v1/payment ::1 201 9.176375ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"48eeb99a-4a99-40c7-b8cd-368b5e907f94","date":"2025-03-05T01:47:22.306786+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:22"}}
+2025/03/05 01:47:22 [POST] /api/v1/payment ::1 201 7.582791ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"480a7ba3-b4cd-4196-b5d3-2be0695e03ac","date":"2025-03-05T01:47:22.696303+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:22"}}
+2025/03/05 01:47:23 [POST] /api/v1/payment ::1 201 7.576542ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"524e7fc9-7cde-4e7e-ad65-711cf7fd118f","date":"2025-03-05T01:47:23.11523+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:23"}}
+2025/03/05 01:47:23 [POST] /api/v1/payment ::1 201 7.572125ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"414b289c-acc8-4800-95f0-6ed11b77cbd9","date":"2025-03-05T01:47:23.413793+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:23"}}
+2025/03/05 01:47:25 [POST] /api/v1/payment ::1 201 9.36625ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"a53c5295-06c2-42bd-ad5f-308febb57f9b","date":"2025-03-05T01:47:25.992872+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:25"}}
+2025/03/05 01:47:26 [POST] /api/v1/payment ::1 201 8.231916ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"61f3b914-b86a-464a-a027-b229a32f680c","date":"2025-03-05T01:47:26.608759+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:26"}}
+2025/03/05 01:47:27 [POST] /api/v1/payment ::1 201 7.614541ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"007dbf5d-59a0-41fb-9bf1-a1f98c915df9","date":"2025-03-05T01:47:27.157845+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:27"}}
+2025/03/05 01:47:27 [POST] /api/v1/payment ::1 201 6.786958ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"e580bcd8-af08-44ef-8638-673bfeebe9f3","date":"2025-03-05T01:47:27.579174+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:27"}}
+2025/03/05 01:47:28 [POST] /api/v1/payment ::1 201 7.7945ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"01fc14e2-f280-49e0-9aea-b399e7efbdcf","date":"2025-03-05T01:47:28.114173+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:47:28"}}
+2025/03/05 01:47:28 [POST] /api/v1/payment ::1 409 4.08625ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:47:29 [POST] /api/v1/payment ::1 409 3.467208ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:47:32 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 8.492083ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":29386260.84,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:47:28"}}}
+2025/03/05 01:47:40 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 4.503709ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":29386260.84,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:47:28"}}}
+2025/03/05 01:52:21 [POST] /api/v1/payment ::1 201 135.501542ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"8f500c9b-f1f1-42df-8dcc-a20bda65e385","date":"2025-03-05T01:52:21.84005+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:21"}}
+2025/03/05 01:52:23 [POST] /api/v1/payment ::1 201 14.379083ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"4e790bbb-6b41-4a1b-b4d5-5558bfcb26ba","date":"2025-03-05T01:52:23.192792+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:23"}}
+2025/03/05 01:52:24 [POST] /api/v1/payment ::1 201 14.064125ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"1ab27549-c2dc-4468-b2a2-d0efc691b30e","date":"2025-03-05T01:52:24.012137+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:24"}}
+2025/03/05 01:52:24 [POST] /api/v1/payment ::1 201 6.84675ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7e9f913b-a5a0-4c71-ab6b-138c2de09f9c","date":"2025-03-05T01:52:24.636314+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:24"}}
+2025/03/05 01:52:25 [POST] /api/v1/payment ::1 201 11.418042ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"aac10856-fe41-49c0-89fb-723996836c5f","date":"2025-03-05T01:52:25.300226+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:25"}}
+2025/03/05 01:52:25 [POST] /api/v1/payment ::1 201 6.877291ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"9f2d118f-12fd-4f77-8c72-8cf3e1abb1f9","date":"2025-03-05T01:52:25.928977+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:25"}}
+2025/03/05 01:52:26 [POST] /api/v1/payment ::1 201 6.421958ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2c2b9590-b0c7-4b52-b1cd-5f11e6fbb087","date":"2025-03-05T01:52:26.496939+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:26"}}
+2025/03/05 01:52:27 [POST] /api/v1/payment ::1 201 6.159834ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7484e61c-1705-4e61-8ebf-9d9a5026eabd","date":"2025-03-05T01:52:27.027268+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:27"}}
+2025/03/05 01:52:27 [POST] /api/v1/payment ::1 201 6.9985ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"0bc49176-3a2d-462a-bca8-93e2d2f1e642","date":"2025-03-05T01:52:27.580686+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:27"}}
+2025/03/05 01:52:28 [POST] /api/v1/payment ::1 201 9.769125ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"f1802db4-d75a-4aee-82ca-b88341c0c424","date":"2025-03-05T01:52:28.117622+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:28"}}
+2025/03/05 01:52:28 [POST] /api/v1/payment ::1 201 90.82525ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7afc35f4-e8d2-4b78-88d0-6ace7de3a215","date":"2025-03-05T01:52:28.730729+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:28"}}
+2025/03/05 01:52:29 [POST] /api/v1/payment ::1 201 6.854791ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"e7fa5b3a-a8e0-46dd-91ba-ffca56b03937","date":"2025-03-05T01:52:29.266085+07:00","amount_paid":51144.93,"status":"SUCCESS","created_at":"05-03-2025 01:52:29"}}
+2025/03/05 01:52:29 [POST] /api/v1/payment ::1 409 4.411708ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:52:32 [POST] /api/v1/payment ::1 409 3.46725ms
+Request: {
+    "contract_number": "CN-20250305-48UNBO",
+    "amount_paid": 51144.93
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:52:49 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 55.664375ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:52:29"}}}
+2025/03/05 01:53:41 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 22.823041ms
+Request: 
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:52:29"}}}
+2025/03/05 01:53:42 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 4.190958ms
+Request: 
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:52:29"}}}
+2025/03/05 01:53:43 [GET] /api/v1/consumer/7ad10358-d981-4cc2-816b-084deb78242f ::1 200 3.956541ms
+Request: 
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"7ad10358-d981-4cc2-816b-084deb78242f","email":"one@example.com","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","legal_name":"Fauzi","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"06-07-1999","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"","created_at":"05-03-2025 01:03:21","updated_at":"05-03-2025 01:44:24","limit":{"id":"ba268563-fdfb-4465-a3cc-f3878b2d0d82","limit_available":30000000,"created_at":"05-03-2025 01:44:23","updated_at":"05-03-2025 01:52:29"}}}
+2025/03/05 01:53:57 [GET] /api/v1/transaction?page=1&limit=10&search=&order_by=created_at&direction=ASC&consumer_id ::1 200 22.934666ms
+Request: 
+Response: {"code":200,"message":"successfully get all consumers","data":[{"id":"1b750b64-bb31-4ac1-9542-77cd58f44986","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":0,"contract_number":"CN-20250305-7P3ZAA","otr":1000000,"tenor":12,"admin_fee":60000,"installment_amt":92915.89,"amount_interest":54990.68,"asset_name":"Airpods"},{"id":"432e10dd-590f-4131-8fda-1d9da63b9f5c","nik":"1234567890123450","full_name":"Ach Sidik Fauzi","limit_available":0,"contract_number":"CN-20250305-48UNBO","otr":1000000,"tenor":24,"admin_fee":120000,"installment_amt":51144.93,"amount_interest":107478.32,"asset_name":"BRV-Prestage 2021"}],"page":{"total_items":4,"item_count":2,"items_per_page":10,"total_pages":1,"current_page":1,"has_next_page":false,"has_prev_page":false}}

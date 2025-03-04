@@ -1,11 +1,10 @@
 package transaction
 
 import (
-	dto2 "asidikfauzi/xyz-multifinance-api/internal/handler/consumer/dto"
-	dto3 "asidikfauzi/xyz-multifinance-api/internal/handler/limit/dto"
 	"asidikfauzi/xyz-multifinance-api/internal/handler/transaction/dto"
 	"asidikfauzi/xyz-multifinance-api/internal/model"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
+	"asidikfauzi/xyz-multifinance-api/internal/pkg/response"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/utils"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/consumer"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/transaction"
@@ -26,6 +25,49 @@ func NewTransactionService(tt transaction.TransactionsMySQL, cm consumer.Consume
 		transactionMySQL: tt,
 		consumerMySQL:    cm,
 	}
+}
+
+func normalizeConsumerQuery(q dto.QueryTransaction) dto.QueryTransaction {
+	if q.Page == 0 {
+		q.Page = 1
+	}
+	if q.Limit == 0 {
+		q.Limit = 10
+	}
+	return q
+}
+
+func (s *transactionService) FindAll(q dto.QueryTransaction) (res dto.ConsumersResponseWithPage, code int, err error) {
+	q = normalizeConsumerQuery(q)
+
+	transactionData, totalItems, err := s.transactionMySQL.FindAll(q)
+	if err != nil {
+		return res, http.StatusInternalServerError, err
+	}
+
+	for _, c := range transactionData {
+		res.Data = append(res.Data, dto.TransactionsResponse{
+			ID:             c.ID,
+			NIK:            *c.Consumer.NIK,
+			FullName:       c.Consumer.FullName,
+			ContractNumber: c.ContractNumber,
+			OTR:            c.OTR,
+			Tenor:          c.Tenor,
+			AdminFee:       c.AdminFee,
+			InstallmentAmt: c.InstallmentAmt,
+			AmountInterest: c.AmountInterest,
+			AssetName:      c.AssetName,
+		})
+	}
+
+	res.Page = response.PaginationResponse{
+		TotalItems:   totalItems,
+		ItemCount:    len(res.Data),
+		ItemsPerPage: q.Limit,
+		CurrentPage:  q.Page,
+	}
+
+	return res, http.StatusOK, nil
 }
 
 func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.TransactionsResponse, code int, err error) {
@@ -79,11 +121,6 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		CreatedAt:      time.Now(),
 		CreatedBy:      input.CreatedBy,
 	}
-	//10609906,44
-
-	//9390093,56
-
-	//9330093.56
 
 	newLimitAvailable := checkConsumer.Limits[0].LimitAvailable - total
 
@@ -98,28 +135,11 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		return res, http.StatusInternalServerError, err
 	}
 
-	consumerData := dto2.ConsumerResponse{
-		ID:              checkConsumer.ID,
-		NIK:             *checkConsumer.NIK,
-		FullName:        checkConsumer.FullName,
-		LegalName:       checkConsumer.LegalName,
-		Phone:           checkConsumer.Phone,
-		PlaceOfBirth:    checkConsumer.PlaceOfBirth,
-		DateOfBirth:     checkConsumer.DateOfBirth,
-		Salary:          checkConsumer.Salary,
-		KtpImage:        checkConsumer.KTPImage,
-		SelfieImage:     checkConsumer.SelfieImage,
-		IsVerified:      checkConsumer.IsVerified,
-		RejectionReason: checkConsumer.RejectionReason,
-	}
-
-	limitData := dto3.LimitResponse{
-		ID:             updateLimit.ID,
-		LimitAvailable: updateLimit.LimitAvailable,
-	}
-
 	res = dto.TransactionsResponse{
 		ID:             newTransaction.ID,
+		NIK:            *checkConsumer.NIK,
+		FullName:       checkConsumer.FullName,
+		LimitAvailable: updateLimit.LimitAvailable,
 		ContractNumber: newTransaction.ContractNumber,
 		OTR:            newTransaction.OTR,
 		Tenor:          newTransaction.Tenor,
@@ -127,8 +147,6 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		InstallmentAmt: newTransaction.InstallmentAmt,
 		AmountInterest: newTransaction.AmountInterest,
 		AssetName:      newTransaction.AssetName,
-		Consumer:       consumerData,
-		Limit:          limitData,
 		CreatedAt:      utils.FormatTime(newTransaction.CreatedAt),
 	}
 

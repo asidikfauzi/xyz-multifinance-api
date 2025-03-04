@@ -25,7 +25,7 @@ func NewConsumersService(cm consumer.ConsumersMySQL) ConsumersService {
 	}
 }
 
-func normalizeCategoryQuery(q dto.QueryConsumer) dto.QueryConsumer {
+func normalizeConsumerQuery(q dto.QueryConsumer) dto.QueryConsumer {
 	if q.Page == 0 {
 		q.Page = 1
 	}
@@ -39,7 +39,7 @@ func normalizeCategoryQuery(q dto.QueryConsumer) dto.QueryConsumer {
 }
 
 func (c *consumerService) FindAll(q dto.QueryConsumer) (res dto.ConsumersResponseWithPage, code int, err error) {
-	q = normalizeCategoryQuery(q)
+	q = normalizeConsumerQuery(q)
 
 	consumers, totalItems, err := c.consumerMySQL.FindAll(q)
 	if err != nil {
@@ -122,7 +122,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		return res, http.StatusInternalServerError, err
 	}
 
-	if checkConsumer.NIK != nil && *checkConsumer.NIK != input.NIK {
+	if (checkConsumer.NIK != nil && *checkConsumer.NIK != input.NIK) || checkConsumer.NIK == nil {
 		_, err = c.consumerMySQL.FindByNIK(input.NIK)
 		if err == nil {
 			return res, http.StatusConflict, constant.NIKConsumerAlreadyExists

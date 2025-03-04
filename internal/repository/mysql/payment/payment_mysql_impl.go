@@ -4,7 +4,6 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/model"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
 	"errors"
-	"github.com/google/uuid"
 	"gorm.io/gorm"
 )
 
@@ -18,11 +17,11 @@ func NewPaymentsMySQL(db *gorm.DB) PaymentsMySQL {
 	}
 }
 
-func (p *paymentMysql) CountPaymentsByConsumerID(customerID uuid.UUID) (count int64, err error) {
+func (p *paymentMysql) CountPaymentsByContractNumber(contractNumber string) (count int64, err error) {
 	err = p.DB.Table("payments").
 		Select("COUNT(payments.id)").
 		Joins("JOIN transactions ON transactions.id = payments.transaction_id").
-		Where("transactions.consumer_id = ? AND payments.deleted_at IS NULL", customerID).
+		Where("transactions.contract_number = ? AND payments.deleted_at IS NULL", contractNumber).
 		Count(&count).Error
 
 	if errors.Is(err, gorm.ErrRecordNotFound) {
