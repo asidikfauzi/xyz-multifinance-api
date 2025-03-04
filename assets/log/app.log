@@ -1202,3 +1202,327 @@ Request: {
 }
 
 Response: {"code":201,"message":"transaction successfully","data":{"id":"73234f40-68b8-443f-b9db-1aae34d7d664","contract_number":"CN-20250304-6AU775","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:14 [POST] /api/v1/payment ::1 404 43.463333ms
+Request: {
+    "contract_number": "CN-20250302-L3TD81",
+    "amount_paid": 351663.37
+}
+Response: {"code":404,"message":"contract number not found"}
+2025/03/05 00:35:19 [POST] /api/v1/payment ::1 400 17.274791ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 351663.37
+}
+Response: {"code":400,"message":"amount paid must be equal to the installment amount"}
+2025/03/05 00:35:37 [POST] /api/v1/payment ::1 201 80.486792ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"55e05d23-71f5-482d-bfaf-f547da56ba95","date":"2025-03-05T00:35:37.787087+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:42 [POST] /api/v1/payment ::1 201 14.018834ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"4b0ddcf0-f429-4a56-9df3-32781a656ad3","date":"2025-03-05T00:35:42.23043+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:46 [POST] /api/v1/payment ::1 201 7.832291ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"04342136-6467-43ea-864a-938cb5843d2f","date":"2025-03-05T00:35:46.599337+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:50 [POST] /api/v1/payment ::1 201 11.038916ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"66671e2c-d0b3-4039-9e57-f1a6a605c750","date":"2025-03-05T00:35:50.18151+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:53 [POST] /api/v1/payment ::1 201 14.355834ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"d918b704-c268-43b7-852e-1b673ba5ed6b","date":"2025-03-05T00:35:53.219961+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:56 [POST] /api/v1/payment ::1 201 9.509625ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"12f3602a-7e3d-4930-bb13-0cf5d7d41a57","date":"2025-03-05T00:35:56.0057+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:35:58 [POST] /api/v1/payment ::1 201 25.973417ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ac4b6e05-2116-43e1-acc9-28a3e80439d3","date":"2025-03-05T00:35:58.650767+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:01 [POST] /api/v1/payment ::1 201 11.489458ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"d6ca5d1b-9d6a-46b1-90b7-9a8a28d8c745","date":"2025-03-05T00:36:01.258266+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:04 [POST] /api/v1/payment ::1 201 15.7505ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ac76d4c2-ee92-4d34-b829-a380f7fd595b","date":"2025-03-05T00:36:04.036028+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:06 [POST] /api/v1/payment ::1 201 9.81025ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ca2bf467-0b1b-40c4-8066-f4a4b1158643","date":"2025-03-05T00:36:06.697774+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:09 [POST] /api/v1/payment ::1 201 9.560583ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"6a900e3e-f2bb-488b-a00a-d513a8bc1586","date":"2025-03-05T00:36:09.259122+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:11 [POST] /api/v1/payment ::1 201 11.253625ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"5078e722-7c6a-44de-973d-a2c346ac6baa","date":"2025-03-05T00:36:11.912586+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:36:14 [POST] /api/v1/payment ::1 409 8.043ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 00:39:57 [POST] /api/v1/payment ::1 201 69.071541ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"54447491-64c1-4ba1-98fe-26ad7e741129","date":"2025-03-05T00:39:57.156675+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:40:36 [POST] /api/v1/transaction ::1 201 36.705958ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"72c78fbb-7d76-40a0-b504-7f68eee26b54","contract_number":"CN-20250305-JBTVLB","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"0001-01-01T00:00:00Z"}}
+2025/03/05 00:43:53 [POST] /api/v1/transaction ::1 201 34.501291ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"c605a5e0-f607-4f82-83e8-fb079e92b8d7","contract_number":"CN-20250305-E9TID1","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"01-01-0001 07:07:12"}}
+2025/03/05 00:44:08 [GET] /api/v1/consumer/8ffb36d1-234b-4adf-a213-fb52699fb581 ::1 200 47.134541ms
+Request: {
+    "email" : "admin@example.com",
+    "password": "admin123"
+}
+Response: {"code":200,"message":"successfully get consumer by id","data":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"user@example.com","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap","created_at":"02-03-2025 22:39:48","updated_at":"02-03-2025 23:02:24","limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56,"created_at":"02-03-2025 23:02:23","updated_at":"05-03-2025 00:43:53"}}}
+2025/03/05 00:50:11 [POST] /api/v1/transaction ::1 201 116.166334ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"f937f832-7da6-47fb-a74a-6405e3536ce8","contract_number":"CN-20250305-DV51B8","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"01-01-0001 07:07:12"}}
+2025/03/05 00:51:47 [POST] /api/v1/transaction ::1 201 222.835167ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"f24f110e-cee1-426a-a54b-222832bc7566","contract_number":"CN-20250305-MNLTXI","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9330093.56},"created_at":"05-03-2025 00:51:47"}}
+2025/03/05 00:52:15 [POST] /api/v1/payment ::1 404 18.145541ms
+Request: {
+    "contract_number": "CN-20250304-6AU775",
+    "amount_paid": 884158.87
+}
+Response: {"code":404,"message":"contract number not found"}
+2025/03/05 00:52:18 [POST] /api/v1/payment ::1 201 51.440708ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"c31c3402-2b88-4d3a-b54e-b27aa62a1d23","date":"2025-03-05T00:52:18.666577+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:18"}}
+2025/03/05 00:52:31 [POST] /api/v1/payment ::1 201 113.125041ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"8348bab8-a802-4c7c-9710-bf990c349a7d","date":"2025-03-05T00:52:31.518495+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:31"}}
+2025/03/05 00:52:34 [POST] /api/v1/payment ::1 201 10.589875ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"04d4bf72-bb17-432b-94f7-ad40e46a15b4","date":"2025-03-05T00:52:34.169073+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:34"}}
+2025/03/05 00:52:36 [POST] /api/v1/payment ::1 201 11.782125ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"4156a216-44d0-46b2-831f-049b6fd86128","date":"2025-03-05T00:52:36.633626+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:36"}}
+2025/03/05 00:52:39 [POST] /api/v1/payment ::1 201 12.643375ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"69e32708-bcd5-456a-ae47-b81dec613ad3","date":"2025-03-05T00:52:39.232901+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:39"}}
+2025/03/05 00:52:41 [POST] /api/v1/payment ::1 201 8.352208ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"7224c78a-a4e7-42c9-866e-e3546f7bb715","date":"2025-03-05T00:52:41.801442+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:41"}}
+2025/03/05 00:52:44 [POST] /api/v1/payment ::1 201 22.535708ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"a2d3d05b-b930-4477-ad55-2988c254319e","date":"2025-03-05T00:52:44.402875+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:44"}}
+2025/03/05 00:52:46 [POST] /api/v1/payment ::1 201 11.214208ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"66c77601-2f2c-4af5-af00-3cd755c6f9b5","date":"2025-03-05T00:52:46.742886+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:46"}}
+2025/03/05 00:52:49 [POST] /api/v1/payment ::1 201 9.273125ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"b07cf03b-1188-4cc6-8c4f-96f67a814da1","date":"2025-03-05T00:52:49.08012+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:49"}}
+2025/03/05 00:52:51 [POST] /api/v1/payment ::1 201 11.209625ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"b06bec55-04ff-4b15-b675-c9647b9f3f89","date":"2025-03-05T00:52:51.298841+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:51"}}
+2025/03/05 00:52:53 [POST] /api/v1/payment ::1 201 8.241792ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"0216b1f1-82a5-4920-8123-6967536bf9b3","date":"2025-03-05T00:52:53.440939+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:53"}}
+2025/03/05 00:52:55 [POST] /api/v1/payment ::1 201 12.768959ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"cbe05c8b-2afe-4668-adab-05cc4d65a96e","date":"2025-03-05T00:52:55.708389+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:52:55"}}
+2025/03/05 00:53:05 [POST] /api/v1/payment ::1 409 31.88ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 00:55:51 [POST] /api/v1/transaction ::1 201 68.391583ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"c3d2d87a-fcb0-4fb3-94ec-3de2fa023d4b","contract_number":"CN-20250305-JY0FZR","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9270093.56},"created_at":"05-03-2025 00:55:51"}}
+2025/03/05 00:59:30 [POST] /api/v1/transaction ::1 201 59.945875ms
+Request: {
+    "otr": 10000000,
+    "asset_name": "Motor CBR",
+    "tenor": 12
+}
+
+Response: {"code":201,"message":"transaction successfully","data":{"id":"d8a59967-a6ae-4f20-8f62-92291335163f","contract_number":"CN-20250305-D3JGI4","otr":10000000,"tenor":12,"admin_fee":60000,"installment_amt":884158.87,"amount_interest":549906.44,"asset_name":"Motor CBR","consumer":{"id":"8ffb36d1-234b-4adf-a213-fb52699fb581","email":"","nik":"1234567890123459","full_name":"Adelia Risky Santoso","legal_name":"Adelia","phone":"087890987890","place_of_birth":"Sumenep","date_of_birth":"01-10-2001","salary":10000000,"ktp_image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpR24fRQKQUeb_vZ5mhvekQZvj5iSfiFhKNw\u0026s","selfie_image":"https://i.pinimg.com/736x/50/08/ef/5008efb9df96969624d2674645027a3a.jpg","is_verified":true,"rejection_reason":"Data diri anda belum lengkap"},"limit":{"id":"f2b33782-8b42-40ab-920f-abfaa96d21db","limit_available":9390093.56},"created_at":"05-03-2025 00:59:30"}}
+2025/03/05 00:59:48 [POST] /api/v1/payment ::1 404 29.894458ms
+Request: {
+    "contract_number": "CN-20250305-MNLTXI",
+    "amount_paid": 884158.87
+}
+Response: {"code":404,"message":"contract number not found"}
+2025/03/05 00:59:59 [POST] /api/v1/payment ::1 201 18.391167ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"83501d73-ae12-4995-a1a4-d642d1527d03","date":"2025-03-05T00:59:59.65959+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 00:59:59"}}
+2025/03/05 01:00:02 [POST] /api/v1/payment ::1 201 10.038292ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"481af5f9-c0b4-4a5a-a747-1e6274342f8e","date":"2025-03-05T01:00:02.626677+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:02"}}
+2025/03/05 01:00:04 [POST] /api/v1/payment ::1 201 13.21325ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"93e935ab-7144-4ccd-b06d-f3815531779b","date":"2025-03-05T01:00:04.870655+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:04"}}
+2025/03/05 01:00:05 [POST] /api/v1/payment ::1 201 5.555042ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"6bc0a5ba-87ef-4dc1-93e4-73e65405c401","date":"2025-03-05T01:00:05.415398+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:05"}}
+2025/03/05 01:00:05 [POST] /api/v1/payment ::1 201 7.307708ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"1919e0e7-2fe7-42d3-a4e2-aef8b50f20b5","date":"2025-03-05T01:00:05.942733+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:05"}}
+2025/03/05 01:00:06 [POST] /api/v1/payment ::1 201 7.422458ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"ba916c01-8307-4328-a373-7b440452a91f","date":"2025-03-05T01:00:06.442848+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:06"}}
+2025/03/05 01:00:06 [POST] /api/v1/payment ::1 201 6.701625ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"c9313716-79b6-4892-8840-814cf3945688","date":"2025-03-05T01:00:06.951344+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:06"}}
+2025/03/05 01:00:07 [POST] /api/v1/payment ::1 201 5.957125ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"490111b3-b300-45cd-95a9-0362decd4318","date":"2025-03-05T01:00:07.469226+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:07"}}
+2025/03/05 01:00:07 [POST] /api/v1/payment ::1 201 6.099458ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2b14ed48-9ba1-47ef-9924-98d8cc0aa7b3","date":"2025-03-05T01:00:07.930912+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:07"}}
+2025/03/05 01:00:08 [POST] /api/v1/payment ::1 201 6.259375ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"2e2b50ea-c5b2-4b29-9da2-81f2eb516db5","date":"2025-03-05T01:00:08.447908+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:08"}}
+2025/03/05 01:00:08 [POST] /api/v1/payment ::1 201 9.805292ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"a3866e99-dca7-4526-9fb7-f9f3394ab6de","date":"2025-03-05T01:00:08.921818+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:08"}}
+2025/03/05 01:00:09 [POST] /api/v1/payment ::1 201 7.184166ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":201,"message":"successful installment payment","data":{"id":"379849a3-8be6-4fdc-b5a0-018d5f2b757e","date":"2025-03-05T01:00:09.450117+07:00","amount_paid":884158.87,"status":"SUCCESS","created_at":"05-03-2025 01:00:09"}}
+2025/03/05 01:00:09 [POST] /api/v1/payment ::1 409 3.929333ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":409,"message":"payment has already been completed"}
+2025/03/05 01:00:10 [POST] /api/v1/payment ::1 409 4.2745ms
+Request: {
+    "contract_number": "CN-20250305-D3JGI4",
+    "amount_paid": 884158.87
+}
+Response: {"code":409,"message":"payment has already been completed"}

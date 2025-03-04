@@ -4,7 +4,6 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/consumer/dto"
 	dto2 "asidikfauzi/xyz-multifinance-api/internal/handler/limit/dto"
 	"github.com/google/uuid"
-	"time"
 )
 
 type TransactionsResponse struct {
@@ -18,5 +17,5 @@ type TransactionsResponse struct {
 	AssetName      string               `json:"asset_name"`
 	Consumer       dto.ConsumerResponse `json:"consumer"`
 	Limit          dto2.LimitResponse   `json:"limit"`
-	CreatedAt      time.Time            `json:"created_at"`
+	CreatedAt      *string              `json:"created_at"`
 }

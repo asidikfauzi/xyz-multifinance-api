@@ -4,10 +4,12 @@ import (
 	"asidikfauzi/xyz-multifinance-api/internal/handler/payment/dto"
 	"asidikfauzi/xyz-multifinance-api/internal/model"
 	"asidikfauzi/xyz-multifinance-api/internal/pkg/constant"
+	"asidikfauzi/xyz-multifinance-api/internal/pkg/utils"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/payment"
 	"asidikfauzi/xyz-multifinance-api/internal/repository/mysql/transaction"
 	"errors"
 	"github.com/google/uuid"
+	"math"
 	"net/http"
 	"time"
 )
@@ -59,10 +61,12 @@ func (r *paymentService) Create(input dto.PaymentInput) (res dto.PaymentResponse
 		AmountPaid:    input.AmountPaid,
 		Status:        string(constant.SUCCESS),
 		TransactionID: transactionData.ID,
+		CreatedAt:     time.Now(),
 		CreatedBy:     input.CreatedBy,
 	}
 
-	updateLimit := transactionData.Consumer.Limits[0].LimitAvailable + paymentData.AmountPaid
+	updateLimitRaw := transactionData.Consumer.Limits[0].LimitAvailable + paymentData.AmountPaid
+	updateLimit := math.Round(updateLimitRaw*100) / 100
 
 	limitsData := model.Limits{
 		ID:             transactionData.Consumer.Limits[0].ID,
@@ -79,7 +83,7 @@ func (r *paymentService) Create(input dto.PaymentInput) (res dto.PaymentResponse
 		Date:       newPayment.Date,
 		AmountPaid: newPayment.AmountPaid,
 		Status:     newPayment.Status,
-		CreatedAt:  newPayment.CreatedAt,
+		CreatedAt:  utils.FormatTime(newPayment.CreatedAt),
 	}
 
 	return res, http.StatusCreated, nil

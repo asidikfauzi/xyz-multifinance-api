@@ -13,6 +13,7 @@ import (
 	"github.com/google/uuid"
 	"math"
 	"net/http"
+	"time"
 )
 
 type transactionService struct {
@@ -57,7 +58,7 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 	installment = installment + constant.AdminFee
 
 	// Total
-	total := installment*n + totalAdminFee
+	total := installment * n
 
 	if total > checkConsumer.Limits[0].LimitAvailable {
 		return res, http.StatusForbidden, constant.InsufficientLimit
@@ -75,14 +76,21 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		AmountInterest: amountInterest,
 		AssetName:      input.AssetName,
 		ConsumerID:     checkConsumer.ID,
+		CreatedAt:      time.Now(),
 		CreatedBy:      input.CreatedBy,
 	}
+	//10609906,44
+
+	//9390093,56
+
+	//9330093.56
 
 	newLimitAvailable := checkConsumer.Limits[0].LimitAvailable - total
 
 	updateLimit := model.Limits{
 		ID:             checkConsumer.Limits[0].ID,
 		LimitAvailable: math.Round(newLimitAvailable*100) / 100,
+		UpdatedBy:      &input.ConsumerID,
 	}
 
 	newTransaction, err := s.transactionMySQL.Transaction(createTransaction, updateLimit)
@@ -121,6 +129,7 @@ func (s *transactionService) Transaction(input dto.TransactionInput) (res dto.Tr
 		AssetName:      newTransaction.AssetName,
 		Consumer:       consumerData,
 		Limit:          limitData,
+		CreatedAt:      utils.FormatTime(newTransaction.CreatedAt),
 	}
 
 	return res, http.StatusCreated, nil

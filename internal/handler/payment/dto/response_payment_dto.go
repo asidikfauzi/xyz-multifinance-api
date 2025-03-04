@@ -10,5 +10,5 @@ type PaymentResponse struct {
 	Date       time.Time `json:"date"`
 	AmountPaid float64   `json:"amount_paid"`
 	Status     string    `json:"status"`
-	CreatedAt  time.Time `json:"created_at"`
+	CreatedAt  *string   `json:"created_at"`
 }

@@ -12,6 +12,7 @@ import (
 	"github.com/google/uuid"
 	"math"
 	"net/http"
+	"time"
 )
 
 type consumerService struct {
@@ -139,6 +140,7 @@ func (c *consumerService) Update(id uuid.UUID, input dto.UpdateConsumerInput) (r
 		Salary:       math.Round(input.Salary*100) / 100,
 		KTPImage:     input.KtpImage,
 		SelfieImage:  input.SelfieImage,
+		UpdatedAt:    time.Now(),
 	}
 
 	editConsumer, err := c.consumerMySQL.Update(consumerData)
