@@ -16,22 +16,26 @@ Proyek ini menggunakan `Makefile` untuk menyederhanakan berbagai tugas build, mi
 
 #### Perintah Umum
 
-- ``: Menginstal dependensi, membangun aplikasi utama, dan menjalankannya.
+- Menginstal dependensi, membangun aplikasi utama, dan menjalankannya.
+  
   ```sh
   make all
   ```
-- ``: Membangun binary aplikasi utama.
-  ```sh
+- Membangun binary aplikasi utama.
+  
+- ```sh
   make build
   ```
-- ``: Membangun ulang binary aplikasi dan menjalankannya.
+-  Membangun ulang binary aplikasi dan menjalankannya.
+  
   ```sh
   make reload
   ```
 
 #### Perintah Migrasi Database
 
-- ``: Membangun dan menjalankan skrip migrasi untuk menerapkan perubahan baru.
+- Membangun dan menjalankan skrip migrasi untuk menerapkan perubahan baru.
+  
   ```sh
   make migrate
   ```
