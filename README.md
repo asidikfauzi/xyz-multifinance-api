@@ -60,6 +60,10 @@ Proyek ini menggunakan `Makefile` untuk menyederhanakan berbagai tugas build, mi
    ```sh
    make run
    ```
+3. Jalankan test:
+   ```sh
+   make test
+   ```
 
 ## Menjalankan Aplikasi dengan Docker
 
